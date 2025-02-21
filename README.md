@@ -8,6 +8,7 @@ A list of frequently-asked questions and answers for MeshCore
 
 ### Hardware
 To use MeshCore without using a phone as the client interface, you can run MeshCore on a T-Deck or T-Deck Plus. It is a complete off-grid secure communication solution.  
+
 MeshCore is also available on a variety of 868MHz and 915MHz LoRa devices. For example, RAK4631 devices (19003, 19007, 19026), Heltec V3, Xiao S3 WIO, Xiao C3, Heltec T114, Station G2, Seeed Studio T1000-E. More devices will be supported later.
 
 ### Firmware
@@ -27,10 +28,12 @@ Companion radios are for connecting to the Android app or web app as a messenger
 
 #### Repeater
 Repeaters are used to extend the range of a MeshCore network. Repeater firmware runs on the same devices that run client firmware. A repeater's job is to forward MeshCore packets to the destination device. It does **not** forward or retransmit every packet it receives, unlike other LoRa mesh systems.  
+
 A repeater can be remotely administered using a password-authenticated T-Deck (and soon from a BLE Companion client).
 
 #### Room Server
 A room server is a simple BBS server for sharing posts. Currently (late February 2025), only T-Deck devices can connect to a room server. There are plans to enable smart device clients to connect to a room server. Room servers can be remotely administered using a password-authenticated T-Deck (soon from a BLE Companion client).  
+
 When a client logs into a room server, the client will receive the previously 16 unseen messages.
 
 ---
@@ -50,7 +53,7 @@ Other radio settings:
 ### Q: What is an "advert" in MeshCore?
 **A:** A MeshCore device "advertises" its presence with an advert packet. MeshCore clients only advertise themselves when the user initiates it. A repeater (and room server?) advertises its presence once every 240 minutes. This interval can be configured using the following command:
 
-set advert.interval {minutes}
+`set advert.interval {minutes}`
 
 
 ---
@@ -68,18 +71,21 @@ set advert.interval {minutes}
 
 ### Q: Do I need to set the location for a repeater?
 **A:** With location set for a repeater, it can show up on a MeshCore map in the future. Set location with the following commands:
-set lat <GPS Lat> set long <GPS Lon>
+
+`set lat <GPS Lat> set long <GPS Lon>`
 
 You can get the latitude and longitude from Google Maps by right-clicking the location you are at on the map.
 
 ### Q: What is the password to administer a repeater or a room server?
 **A:** The default admin password to a repeater and room server is `password`. Use the following command to change the admin password:
-password {new-password}
+
+`password {new-password}`
 
 
 ### Q: What is the password to join a room server?
 **A:** The default guest password to a room server is `hello`. Use the following command to change the guest password:
-set guest.password {guest-password}
+
+`set guest.password {guest-password}`
 
 
 ---
@@ -117,14 +123,14 @@ Another way to download map tiles is to use this Python script to get the tiles 
 There is also a modified script that adds additional error handling and parallel downloads:  
 <https://discord.com/channels/826570251612323860/1330643963501351004/1338775811548905572>  
 
-UK map tiles are available separately from Andy Kirby:  
+UK map tiles are available separately from Andy Kirby on his discord server:  
 <https://discord.com/channels/826570251612323860/1330643963501351004/1331346597367386224>
 
 #### Where do the map tiles go?
 Once you have the tiles downloaded, copy the `\tiles` folder to the root of your T-Deck's SD card.
 
 ### Q: How to unlock deeper map zoom and server management features on T-Deck?
-**A:** You can download, install, and use the T-Deck firmware for free, but it has some limitations that are removed if you purchase an unlock code for \$10 per T-Deck device.  
+**A:** You can download, install, and use the T-Deck firmware for free, but it has some features (map zoom, server administration) that are enabled if you purchase an unlock code for \$10 per T-Deck device.  
 Unlock page: <https://buymeacoffee.com/ripplebiz/e/249834>
 
 ---
@@ -132,12 +138,12 @@ Unlock page: <https://buymeacoffee.com/ripplebiz/e/249834>
 ## General
 
 ### Q: Is MeshCore open source?
-**A:** All the firmware is freely available. Everything is open source **except** the T-Deck firmware.  
-- Firmware: <https://github.com/ripplebiz/MeshCore>  
+**A:** All the firmware is freely available. Everything is open source except the T-Deck firmware.  
+- Firmware repo: <https://github.com/ripplebiz/MeshCore>  
 - Android and iOS clients: will be available later
 
 ### Q: How can I support MeshCore?
-**A:** Provide your honest feedback on GitHub and on AndyKirky's Discord server <http://discord.com/invite/H62Re4DCeD>. Spread the word of MeshCore to your friends and communities; help them get started with MeshCore. Support MeshCore development at <https://buymeacoffee.com/ripplebiz>.
+**A:** Provide your honest feedback on GitHub and on AndyKirby's Discord server <http://discord.com/invite/H62Re4DCeD>. Spread the word of MeshCore to your friends and communities; help them get started with MeshCore. Support MeshCore development at <https://buymeacoffee.com/ripplebiz>.
 
 ### Q: How do I build MeshCore firmware from source?
 **A:** See instructions here:  
@@ -145,8 +151,11 @@ Unlock page: <https://buymeacoffee.com/ripplebiz/e/249834>
 
 Andy also has a video on how to build using VS Code:  
 *How to build and flash Meshcore repeater firmware | Heltec V3*  
-<https://www.youtube.com/watch?v=...> *(Link referenced in the Discord post)*
+<https://www.youtube.com/watch?v=WJvg6dt13hk> *(Link referenced in the Discord post)*
 
+### Q: Does MeshCore support ATAK
+**A:** ATAK is not currently on MeshCore's roadmap.
+    
 ---
 
 ## Troubleshooting
@@ -160,4 +169,5 @@ Andy also has a video on how to build using VS Code:
 You can get the epoch time on <https://www.epochconverter.com/> and use it to set your T-Deck clock. For a repeater and room server, the admin can use a T-Deck to remotely set their clock (clock sync), or use the `time` command in the USB serial console with the server device connected.
 
 ---
-
+    
+    
