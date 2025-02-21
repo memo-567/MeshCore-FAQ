@@ -43,6 +43,7 @@ When a client logs into a room server, the client will receive the previously 16
 ### Q: What frequencies are supported by MeshCore?
 **A:** It supports the 868MHz range in the UK/EU and the 915MHz range in New Zealand, Australia, and the USA. Countries and regions in these two frequency ranges are also supported. The firmware and client allow users to set their preferred frequency.  
 - UK and EU are gravitating toward **867.5MHz**
+- There are discussions on discord for UK to move to 869.525MHz (https://discord.com/channels/826570251612323860/1330643963501351004/1342554454498742374)
 - USA is gravitating toward **910.525MHz**
 
 Other radio settings:  
