@@ -184,8 +184,11 @@ Andy also has a video on how to build using VS Code:
 You can get the epoch time on <https://www.epochconverter.com/> and use it to set your T-Deck clock. For a repeater and room server, the admin can use a T-Deck to remotely set their clock (clock sync), or use the `time` command in the USB serial console with the server device connected.
 
 ### Q: How to connect to a repeater via BLE (bluetooth)?
-**A** 
-You can't connect to a device running repeater firmware  via bluetooth.  Devices running the BLE companion firmware you can connect to it via bluetooth using the android app
+**A:** You can't connect to a device running repeater firmware  via bluetooth.  Devices running the BLE companion firmware you can connect to it via bluetooth using the android app
+
+### Q: I can't connect via bluetooth, what is the bluetooth pairing code?
+
+**A: ** the default bluetooth pairing code is `123456`
 
 ---
     
