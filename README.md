@@ -36,9 +36,23 @@ A room server is a simple BBS server for sharing posts. Currently (late February
 
 When a client logs into a room server, the client will receive the previously 16 unseen messages.
 
+A room server can also take on the repeater role.  To enable repeater role on a room server, use this command:
+
+`set repeat {on|off}`
+
 ---
 
 ## Initial Setup
+
+### Q: How many devices do I need to start using meshcore?
+**A:** If you have one supported device, flash the BLE Companion firmware and use your device as a client.  You can connect to the device using the Android client via bluetooth (iOS client will be available later).  You can start communiating with other MeshCore users near you.
+
+If you have two supported devices, and there are not many MeshCore users near you, flash both of them to BLE Companion firmware so you can use your devices to communiate with your near-by friends and family.
+
+If you have two supported devices, and there are other MeshcCore users near by, you can flash one of your devices with BLE Companion firmware, and flash another supported device to repeater firmware.  Place the repeater high above ground o extend your MeshCore network's reach.
+
+If you have more supported devices, you can use your additional deivces with the room server firmware.  
+
 
 ### Q: What frequencies are supported by MeshCore?
 **A:** It supports the 868MHz range in the UK/EU and the 915MHz range in New Zealand, Australia, and the USA. Countries and regions in these two frequency ranges are also supported. The firmware and client allow users to set their preferred frequency.  
@@ -168,6 +182,10 @@ Andy also has a video on how to build using VS Code:
 - If you are using the Android or iOS client, the other client, repeater, or room server may have the wrong time.  
 
 You can get the epoch time on <https://www.epochconverter.com/> and use it to set your T-Deck clock. For a repeater and room server, the admin can use a T-Deck to remotely set their clock (clock sync), or use the `time` command in the USB serial console with the server device connected.
+
+### Q: How to connect to a repeater via BLE (bluetooth)?
+**A** 
+You can't connect to a device running repeater firmware  via bluetooth.  Devices running the BLE companion firmware you can connect to it via bluetooth using the android app
 
 ---
     
