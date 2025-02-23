@@ -71,6 +71,10 @@ the rest of the radio settings are the same for all frequencies:
 
 `set advert.interval {minutes}`
 
+###Q: Is there a hop limit?
+
+**A:** Internally the firmware has maximum limit of 64 hops.  In real world settings it will be difficult to get close to the limit due to the environments and timing as packets travel further and further.  We want to hear how far your MeshCore conversations go. 
+
 
 ---
 
@@ -189,7 +193,12 @@ You can get the epoch time on <https://www.epochconverter.com/> and use it to se
 
 ### Q: I can't connect via bluetooth, what is the bluetooth pairing code?
 
-**A: ** the default bluetooth pairing code is `123456`
+**A:** the default bluetooth pairing code is `123456`
+
+### Q: My Heltec V3 keeps disconnecting from my smartphone.  It can't hold a solid Bluetooth connection.
+
+**A:** Heltec V3 has a very small coil antenna on its PCB for WiFi and Bluetooth connectivty.  It has a very short range, only a few feet.  It is possible to remove the coil antenna  and replace it with a 31mm wire.  The BT range is much improved with the modification.
+
 
 ---
     
