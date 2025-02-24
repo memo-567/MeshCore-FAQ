@@ -53,6 +53,14 @@ If you have two supported devices, and there are other MeshcCore users near by, 
 
 If you have more supported devices, you can use your additional deivces with the room server firmware.  
 
+### Q: Does MeshCore cost any money?
+
+**A:** All radio firmware versions (e.g. for Heltec V3, RAK, T-1000E, etc) are free and open source developed by Scott at Ripple Radios.  
+
+The native Android and iOS client is free and will be open source developed by Liam Cottle, developer of meshtastic map at [meshtastic.liamcottle.net](https://meshtastic.liamcottle.net) on [github ](https://github.com/liamcottle/meshtastic-map)and [reticulum-meshchat on github](https://github.com/liamcottle/reticulum-meshchat). 
+
+The T-Deck firmware is free to download and most features are available with out cost.  To support the firmware developer, you can pay for a registration key to unlock your T-Deck for deeper map zoom and remote server administration over RF using the T-Deck.  You do not need to pay for the registration to use your T-Deck for direct messaging and connecting to repeaters and room servers. 
+
 
 ### Q: What frequencies are supported by MeshCore?
 **A:** It supports the 868MHz range in the UK/EU and the 915MHz range in New Zealand, Australia, and the USA. Countries and regions in these two frequency ranges are also supported. The firmware and client allow users to set their preferred frequency.  
