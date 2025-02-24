@@ -75,7 +75,15 @@ the rest of the radio settings are the same for all frequencies:
 - Bandwidth (BW): 250.00  
 
 ### Q: What is an "advert" in MeshCore?
-**A:** A MeshCore device "advertises" its presence with an advert packet. MeshCore clients only advertise themselves when the user initiates it. A repeater (and room server?) advertises its presence once every 240 minutes. This interval can be configured using the following command:
+**A:** 
+Advert means to advertise yourself on the network. In Reticulum terms it would be to announce. In Meshtastic terms it would be the node sending it's node info.
+
+MeshCore allows you to manually broadcast your name, position and public encryption key, which is also signed to prevent spoofing.  When you click the advert button, it broadcasts that data over LoRa.  MeshCore calls that an Advert. There's two ways to advert, "zero hop" and "flood".
+
+* Zero hop means your advert is broadcasted out to anyone that can hear it, and that's it.
+* Flooded means it's broadcasted out, and then repeated by all the repeaters that hear it.
+
+MeshCore clients only advertise themselves when the user initiates it. A repeater (and room server?) advertises its presence once every 240 minutes. This interval can be configured using the following command:
 
 `set advert.interval {minutes}`
 
