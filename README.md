@@ -146,12 +146,19 @@ There is also a modified script that adds additional error handling and parallel
 UK map tiles are available separately from Andy Kirby on his discord server:  
 <https://discord.com/channels/826570251612323860/1330643963501351004/1331346597367386224>
 
-#### Where do the map tiles go?
+### Q: Where do the map tiles go?
 Once you have the tiles downloaded, copy the `\tiles` folder to the root of your T-Deck's SD card.
 
 ### Q: How to unlock deeper map zoom and server management features on T-Deck?
 **A:** You can download, install, and use the T-Deck firmware for free, but it has some features (map zoom, server administration) that are enabled if you purchase an unlock code for \$10 per T-Deck device.  
 Unlock page: <https://buymeacoffee.com/ripplebiz/e/249834>
+
+
+### Q: The T-Deck sound is too loud?
+### Q: Can you customize the sound?
+
+**A:** You can customise the sounds on the T-Deck, just by placing `.mp3` files onto the `root` dir of the SD card. `startup.mp3`, `alert.mp3` and `new-advert.mp3`
+
 
 ---
 
