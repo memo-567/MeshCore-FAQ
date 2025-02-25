@@ -1,3 +1,8 @@
+# As of Feb 24, 2025, this FAQ has been moved to MeshCore GitHub's wiki.
+
+# https://github.com/ripplebiz/MeshCore/wiki/FAQ
+
+
 # MeshCore-FAQ
 A list of frequently-asked questions and answers for MeshCore
 
