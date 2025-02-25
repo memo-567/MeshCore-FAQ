@@ -3,8 +3,28 @@ A list of frequently-asked questions and answers for MeshCore
 
 ---
 
+## Q: What is MeshCore?
+
+**A:** MeshCore is free and open source
+* MeshCore is the routing and firmware etc, available on GitHub under MIT license
+* There are clients made by the community, such as the web clients, these are free to use, and some are open source too
+* The cross platform mobile app developed by [Liam Cottle](https://liamcottle.net) for Android/iOS/PC etc is free to download and use
+* The T-Deck firmware is developed by Scott at Ripple Radios, the creator of MeshCore, is also free to flash on your devices and use
+
+
+Some more advanced, but optional features are available on T-Deck if you register your device for a key to unlock.  These features are completely optional and aren't needed for the core messaging experience. They're like super bonus features and to help the developers continue to work on these amazing features, they may charge a small fee for an unlock code to utilise the advanced features.
+
+Anyone is able to build anything they like on top of MeshCore without paying anything
+
 ## Q: What do you need to start using MeshCore?
-**A:** You need LoRa hardware devices to run MeshCore firmware as clients or server (repeater and room server).
+**A:** Everything you need for MeshCore is available at:
+ Main web site: [https://meshcore.co.uk/](https://meshcore.co.uk/)
+ Firmware Flasher: https://flasher.meshcore.co.uk/
+ Phone Client Applications: https://meshcore.co.uk/apps.html
+ MeshCore Fimrware Github: https://github.com/ripplebiz/MeshCore
+ 
+
+ You need LoRa hardware devices to run MeshCore firmware as clients or server (repeater and room server).
 
 ### Hardware
 To use MeshCore without using a phone as the client interface, you can run MeshCore on a T-Deck or T-Deck Plus. It is a complete off-grid secure communication solution.  
