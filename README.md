@@ -1,6 +1,8 @@
 # MeshCore-FAQ
 A list of frequently-asked questions and answers for MeshCore
 
+This is a mirror of https://github.com/ripplebiz/MeshCore/blob/main/docs/faq.md.  This page you are reading here might have newer updates if pull requests on Scott's repo are behind.
+
 author: https://github.com/LitBomb
 ---
 
