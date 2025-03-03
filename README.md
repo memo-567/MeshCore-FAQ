@@ -1,11 +1,7 @@
-# As of Feb 24, 2025, this FAQ has been moved to MeshCore GitHub's wiki.
-
-# https://github.com/ripplebiz/MeshCore/wiki/FAQ
-
-
 # MeshCore-FAQ
 A list of frequently-asked questions and answers for MeshCore
 
+author: https://github.com/LitBomb
 ---
 
 ## Q: What is MeshCore?
@@ -17,9 +13,11 @@ A list of frequently-asked questions and answers for MeshCore
 * The T-Deck firmware is developed by Scott at Ripple Radios, the creator of MeshCore, is also free to flash on your devices and use
 
 
-Some more advanced, but optional features are available on T-Deck if you register your device for a key to unlock.  These features are completely optional and aren't needed for the core messaging experience. They're like super bonus features and to help the developers continue to work on these amazing features, they may charge a small fee for an unlock code to utilise the advanced features.
+Some more advanced, but optional features are available on T-Deck if you register your device for a key to unlock.  On the MeshCore smartphone clients for Android and iOS/iPadOS, you can unlock the wait timer for repeater and room server remote management over RF feature. 
 
-Anyone is able to build anything they like on top of MeshCore without paying anything
+These features are completely optional and aren't needed for the core messaging experience. They're like super bonus features and to help the developers continue to work on these amazing features, they may charge a small fee for an unlock code to utilise the advanced features.
+
+Anyone is able to build anything they like on top of MeshCore without paying anything.
 
 ## Q: What do you need to start using MeshCore?
 **A:** Everything you need for MeshCore is available at:
@@ -54,10 +52,14 @@ Companion radios are for connecting to the Android app or web app as a messenger
 #### Repeater
 Repeaters are used to extend the range of a MeshCore network. Repeater firmware runs on the same devices that run client firmware. A repeater's job is to forward MeshCore packets to the destination device. It does **not** forward or retransmit every packet it receives, unlike other LoRa mesh systems.  
 
-A repeater can be remotely administered using a password-authenticated T-Deck (and soon from a BLE Companion client).
+A repeater can be remotely administered using a T-Deck running the MeshCore firwmware with remote admistration features unlocked, or from a BLE Companion client connected to a smartphone running the MeshCore app.
 
 #### Room Server
-A room server is a simple BBS server for sharing posts. Currently (late February 2025), only T-Deck devices can connect to a room server. There are plans to enable smart device clients to connect to a room server. Room servers can be remotely administered using a password-authenticated T-Deck (soon from a BLE Companion client).  
+A room server is a simple BBS server for sharing posts. T-Deck devices running MeshCore firmware or a BLE Companion client connected to a smartphone running the MeshCore app can connect to a room server. 
+
+room servers store message history on them, and push the stored messages to users.  Room servers allow roaming users to come back later and retrieve message history.  Contrast to channels, messages are either received  when it's sent, or not received and missed if the a room user is out of range.  You can think  of room servers like email servers where you can come back later and get your emails from your mail server 
+
+A room server can be remotely administered using a T-Deck running the MeshCore firwmware with remote admistration features unlocked, or from a BLE Companion client connected to a smartphone running the MeshCore app.  
 
 When a client logs into a room server, the client will receive the previously 16 unseen messages.
 
@@ -82,9 +84,9 @@ If you have more supported devices, you can use your additional deivces with the
 
 **A:** All radio firmware versions (e.g. for Heltec V3, RAK, T-1000E, etc) are free and open source developed by Scott at Ripple Radios.  
 
-The native Android and iOS client is free and will be open source developed by Liam Cottle, developer of meshtastic map at [meshtastic.liamcottle.net](https://meshtastic.liamcottle.net) on [github ](https://github.com/liamcottle/meshtastic-map)and [reticulum-meshchat on github](https://github.com/liamcottle/reticulum-meshchat). 
+The native Android and iOS client uses the freemium model and is developed by Liam Cottle, developer of meshtastic map at [meshtastic.liamcottle.net](https://meshtastic.liamcottle.net) on [github ](https://github.com/liamcottle/meshtastic-map)and [reticulum-meshchat on github](https://github.com/liamcottle/reticulum-meshchat). 
 
-The T-Deck firmware is free to download and most features are available with out cost.  To support the firmware developer, you can pay for a registration key to unlock your T-Deck for deeper map zoom and remote server administration over RF using the T-Deck.  You do not need to pay for the registration to use your T-Deck for direct messaging and connecting to repeaters and room servers. 
+The T-Deck firmware is free to download and most features are available without cost.  To support the firmware developer, you can pay for a registration key to unlock your T-Deck for deeper map zoom and remote server administration over RF using the T-Deck.  You do not need to pay for the registration to use your T-Deck for direct messaging and connecting to repeaters and room servers. 
 
 
 ### Q: What frequencies are supported by MeshCore?
@@ -112,7 +114,7 @@ MeshCore clients only advertise themselves when the user initiates it. A repeate
 
 `set advert.interval {minutes}`
 
-###Q: Is there a hop limit?
+### Q: Is there a hop limit?
 
 **A:** Internally the firmware has maximum limit of 64 hops.  In real world settings it will be difficult to get close to the limit due to the environments and timing as packets travel further and further.  We want to hear how far your MeshCore conversations go. 
 
@@ -200,15 +202,33 @@ Unlock page: <https://buymeacoffee.com/ripplebiz/e/249834>
 
 **A:** You can customise the sounds on the T-Deck, just by placing `.mp3` files onto the `root` dir of the SD card. `startup.mp3`, `alert.mp3` and `new-advert.mp3`
 
+### Q: What is the 'Import from Clipboard' feature on the t-deck and is there a way to manually add nodes without having to receive adverts?
+
+**A:** 'Import from Clipboard' is for importing a contact via a file named 'clipboard.txt' on the SD card. The opposite, is in the Identity screen, the 'Card to Clipboard' menu, which writes to 'clipboard.txt' so you can share yourself (call these 'biz cards', that start with "meshcore://...")
 
 ---
 
 ## General
 
+### Q: What are BW, SF, and CR?
+
+**A:** 
+
+**BW is bandwidth** - width of frequency spectrum that is used for transmission
+
+**SF is spreading factor** - how much should the communication spread in time
+
+**CR is coding rate** - https://www.thethingsnetwork.org/docs/lorawan/fec-and-code-rate/
+Making the bandwidth 2x wider (from BW125 to BW250) allows you to send 2x more bytes in the same time. Making the spreading factor 1 step lower (from SF10 to SF9) allows you to send 2x more bytes in the same time. 
+
+Lowering the spreading factor makes it more difficult for the gateway to receive a transmission, as it will be more sensitive to noise. You could compare this to two people taking in a noisy place (a bar for example). If you’re far from each other, you have to talk slow (SF10), but if you’re close, you can talk faster (SF7)
+
+So it's balancing act between speed of the transmission and resistance to noise.
+things network is mainly focused on LoRaWAN, but the LoRa low-level stuff still checks out for any LoRa project
+
 ### Q: Is MeshCore open source?
-**A:** All the firmware is freely available. Everything is open source except the T-Deck firmware.  
+**A:** Most of the firmware is freely available. Everything is open source except the T-Deck firmware and Liam's native mobile apps.  
 - Firmware repo: <https://github.com/ripplebiz/MeshCore>  
-- Android and iOS clients: will be available later
 
 ### Q: How can I support MeshCore?
 **A:** Provide your honest feedback on GitHub and on AndyKirby's Discord server <http://discord.com/invite/H62Re4DCeD>. Spread the word of MeshCore to your friends and communities; help them get started with MeshCore. Support MeshCore development at <https://buymeacoffee.com/ripplebiz>.
@@ -220,6 +240,13 @@ Unlock page: <https://buymeacoffee.com/ripplebiz/e/249834>
 Andy also has a video on how to build using VS Code:  
 *How to build and flash Meshcore repeater firmware | Heltec V3*  
 <https://www.youtube.com/watch?v=WJvg6dt13hk> *(Link referenced in the Discord post)*
+
+### Q: Are there other MeshCore related open source projects?
+
+**A:** [Liam Cottle](https://liamcottle.net)'s MeshCore web client and MeshCore Javascript libary are open source under MIT license.
+
+Web client: https://github.com/liamcottle/meshcore-web
+Javascript: https://github.com/liamcottle/meshcore.js
 
 ### Q: Does MeshCore support ATAK
 **A:** ATAK is not currently on MeshCore's roadmap.
