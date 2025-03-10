@@ -1,7 +1,8 @@
 # MeshCore-FAQ
 A list of frequently-asked questions and answers for MeshCore
 
-This is a mirror of https://github.com/ripplebiz/MeshCore/blob/main/docs/faq.md.  This page you are reading here might have newer updates if pull requests on Scott's repo are behind.
+The current version of this MeshCore FAQ is at https://github.com/ripplebiz/MeshCore/blob/main/docs/faq.md.  
+This MeshCore FAQ is also mirrored at https://github.com/LitBomb/MeshCore-FAQ and might have newer updates if pull requests on Scott's MeshCore repo are not approved yet.
 
 author: https://github.com/LitBomb
 ---
