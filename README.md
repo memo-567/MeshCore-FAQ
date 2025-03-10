@@ -290,10 +290,11 @@ You can get the epoch time on <https://www.epochconverter.com/> and use it to se
 
 1. Download the ZIP file for the specific node from the web flasher to your smartphone
 2. On the phone client, log on to the repeater as administrator (default password is `password`) to issue the `start ota`command to the repeater or room server to get the device into OTA DFU mode
+   
 ![image](https://github.com/user-attachments/assets/889bb81b-7214-4a1c-955a-396b5a05d8ad)
 	1. `start ota` can be initiated from USB serial console on the web flasher page or a T-Deck
-3. On the smartphone, download and run the nRF app and scan for Bluetooth devices
-4. Connect to the repeater/room server node you want to update
+4. On the smartphone, download and run the nRF app and scan for Bluetooth devices
+5. Connect to the repeater/room server node you want to update
 	1. nRF app is available on both Android and iOS
 
 **Android continues after the iOS section:**
@@ -301,10 +302,14 @@ You can get the epoch time on <https://www.epochconverter.com/> and use it to se
 **iOS continues here:**
 5. Once connected successfully, a `DFU` icon ![Pasted image 20250309173039](https://github.com/user-attachments/assets/af7a9f78-8739-4946-b734-02bade9c8e71)
  appears in the top right corner of the app![Pasted image 20250309171919](https://github.com/user-attachments/assets/08007ec8-4924-49c1-989f-ca2611e78793)
+
 6. Scroll down to change the `PRN(s)` number:
+
 ![Pasted image 20250309190158](https://github.com/user-attachments/assets/11f69cdd-12f3-4696-a6fc-14a78c85fe32)
-	i. For the T114, change the number of packets `(PRN(s)` to 8
-	ii. For RAK, it can be 10, but it also works on 8.
+
+- For the T114, change the number of packets `(PRN(s)` to 8
+- For RAK, it can be 10, but it also works on 8.
+
 7. Click the `DFU` icon ![Pasted image 20250309173039](https://github.com/user-attachments/assets/af7a9f78-8739-4946-b734-02bade9c8e71), select the type of file to upload (choose ZIP), then select the ZIP file that was downloaded earlier  from the web flasher
 8. The upload process will start now. If everything goes well, the node resets and is flashed successfully.
 ![Pasted image 20250309190342](https://github.com/user-attachments/assets/a60e25d0-33b8-46cf-af90-20a7d8ac2adb)
@@ -313,29 +318,36 @@ You can get the epoch time on <https://www.epochconverter.com/> and use it to se
 
 **Android steps continues below:**
 1. on the top left corner of the nRF Connect app on Android, tap the 3-bar hamburger menu, then `Settings`, then `nRF5 DFU Options`
-![Screenshot_20250309-203154 Hamberger](https://github.com/user-attachments/assets/94a05fb5-7efa-4aa5-9c82-7707478293fc)
-![Screenshot_20250309-203555](https://github.com/user-attachments/assets/405427b9-96eb-4e40-9928-23399ac36045)
-![Screenshot_20250309-203602](https://github.com/user-attachments/assets/4ff5c6bf-8f18-4300-a12f-e3f805a93cbd)
+
+![Android nRF Hamberger](https://github.com/user-attachments/assets/ea6dfeef-9367-4830-bd70-1441d517c706)
+
+![Android nRF Settings](https://github.com/user-attachments/assets/c63726bf-cecd-4987-be68-afb6358c7190)
+
+![Android nRF DFU Options](https://github.com/user-attachments/assets/b20e872f-5122-41d9-90df-0215cff5fbc9)
 
 2. Change `Number of packets` to `10` for RAK, `8` for Heltec T114
-![Screenshot_20250309-203615](https://github.com/user-attachments/assets/c672a234-833a-4683-af00-457a36d3036d)
 
-4. Go back to the main screen
-5. Your LoRa device should already ben in DFU mode from previous steps
-6. tap `SCANNER` and then `SCAN` to find the device you want to update, tap `CONNECT`
-![Screenshot_20250309-203135](https://github.com/user-attachments/assets/851dde70-d39c-4d8a-a61b-6083601f8d33)
+![Android nRF Number of Packets](https://github.com/user-attachments/assets/c092adaf-4cb3-460b-b7ef-8d7f450d602b)
 
+3. Go back to the main screen
+4. Your LoRa device should already ben in DFU mode from previous steps
+5. tap `SCANNER` and then `SCAN` to find the device you want to update, tap `CONNECT`
 
-7. On the top left corner of the nRF Connect app, tap the `DFU` icon next to the three dots
-![Screenshot_20250309-203154 DFU](https://github.com/user-attachments/assets/ce059ec9-0924-45ba-9064-b0c4f2758f75)
+![Android nRF Scanner Scan Connect](https://github.com/user-attachments/assets/37218717-f167-48b6-a6ca-93d132ef77ca)
 
-9. Choose `Distribution packet (ZIP)` and then `OK`
-![Screenshot_20250309-203205](https://github.com/user-attachments/assets/bd38b58b-365c-4831-a876-c95d4c5939a9)
+6. On the top left corner of the nRF Connect app, tap the `DFU` icon next to the three dots
 
-11. Choose the firmware file in ZIP formate that you downloaded earlier from the MeshCore web flasher, update will start as soon as you tap the file
-![Screenshot_20250309-210033](https://github.com/user-attachments/assets/f0cf06e8-b802-4276-9c36-20a770d32b5b)
+![Android nRF DFU](https://github.com/user-attachments/assets/1ec3b818-bf0c-461f-8fdf-37c41a63cafa)
 
-12. When the update process is done, the device will disconnect from nRF app and the LoRa device is updated
+7. Choose `Distribution packet (ZIP)` and then `OK`
+
+![Android nRF Distribution Packet (ZIP)](https://github.com/user-attachments/assets/e65f5616-9793-44f5-95c0-a3eb15aa7152)
+
+8. Choose the firmware file in ZIP formate that you downloaded earlier from the MeshCore web flasher, update will start as soon as you tap the file
+
+![Android nRF FW Updating](https://github.com/user-attachments/assets/0814d123-85ce-4c87-90a7-e1a25dc71900)
+
+9. When the update process is done, the device will disconnect from nRF app and the LoRa device is updated
 
 
 ---
