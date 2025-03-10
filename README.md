@@ -276,6 +276,28 @@ You can get the epoch time on <https://www.epochconverter.com/> and use it to se
 
 **A:** Heltec V3 has a very small coil antenna on its PCB for WiFi and Bluetooth connectivty.  It has a very short range, only a few feet.  It is possible to remove the coil antenna  and replace it with a 31mm wire.  The BT range is much improved with the modification.
 
+---
+### Q: How to  Update repeater and room server firmware over the air?
+
+**A: ** You can update repeater and room server firmware with a bluetooth connection between your smartphone and your LoRa radio using the nRF app.
+
+1. Download the ZIP file for the specific node from the web flasher to your smartphone
+2. On the phone client, log on to the repeater as administrator (default password is `password`) to issue the `start ota`command to the repeater or room server to get the device into OTA DFU mode
+3. ![image](https://github.com/user-attachments/assets/889bb81b-7214-4a1c-955a-396b5a05d8ad)
+	1. `start ota` can be initiated from USB serial console on the web flasher page or a T-Deck
+4. On the smartphone, download and run the nRF app and scan for Bluetooth devices
+5. Connect to the repeater/room server node you want to update
+	1. nRF app is available on both Android and iOS
+6. Once connected successfully, a `DFU` icon ![Pasted image 20250309173039](https://github.com/user-attachments/assets/af7a9f78-8739-4946-b734-02bade9c8e71)
+ appears in the top right corner of the app
+7.![Pasted image 20250309171919](https://github.com/user-attachments/assets/08007ec8-4924-49c1-989f-ca2611e78793)
+8. Scroll down to change the `PRN(s)` number:
+9. ![Pasted image 20250309190158](https://github.com/user-attachments/assets/11f69cdd-12f3-4696-a6fc-14a78c85fe32)
+	1. For the T114, change the number of packets `(PRN(s)` to 8
+	2. For RAK, it can be 10, but it also works on 8.
+10. Click the `DFU` icon ![Pasted image 20250309173039](https://github.com/user-attachments/assets/af7a9f78-8739-4946-b734-02bade9c8e71), select the type of file to upload (choose ZIP), then select the ZIP file that was downloaded earlier  from the web flasher
+11. The upload process will start now. If everything goes well, the node resets and is flashed successfully.
+12. ![Pasted image 20250309190342](https://github.com/user-attachments/assets/a60e25d0-33b8-46cf-af90-20a7d8ac2adb)
 
 ---
     
