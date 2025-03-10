@@ -129,11 +129,11 @@ MeshCore clients only advertise themselves when the user initiates it. A repeate
 
 ### Q: How do you configure a repeater or a room server?
 **A:** One of these servers can be administered with one of the options below:
-- Connect the server device through a USB serial connection to a computer running Chrome on this site:  
-  <https://googlechromelabs.github.io/serial-terminal/>
+- Connect the server device using a USB cable to a computer running Chrome on https://flasher.meshcore.co.uk/, then use the `console` feature to connect to the device
+	- this is necessary to set the server device's frequency if it doesn't match the frequency for your local region or country
+- MeshCore smart device clients have the ability to remotely administer servers.
 - A T-Deck running unlocked/registered MeshCore firmware. Remote server administration is enabled through registering your T-Deck with Ripple Radios. It is one of the ways to support MeshCore development. You can register your T-Deck at:  
   <https://buymeacoffee.com/ripplebiz/e/249834>
-- MeshCore smart device clients may have the ability to remotely administer servers in the future.
 
 ### Q: Do I need to set the location for a repeater?
 **A:** With location set for a repeater, it can show up on a MeshCore map in the future. Set location with the following commands:
@@ -234,7 +234,11 @@ things network is mainly focused on LoRaWAN, but the LoRa low-level stuff still 
 - Firmware repo: <https://github.com/ripplebiz/MeshCore>  
 
 ### Q: How can I support MeshCore?
-**A:** Provide your honest feedback on GitHub and on AndyKirby's Discord server <http://discord.com/invite/H62Re4DCeD>. Spread the word of MeshCore to your friends and communities; help them get started with MeshCore. Support MeshCore development at <https://buymeacoffee.com/ripplebiz>.
+**A:** Provide your honest feedback on GitHub and on AndyKirby's Discord server <http://discord.com/invite/H62Re4DCeD>. Spread the word of MeshCore to your friends and communities; help them get started with MeshCore. Support Scott's MeshCore development at <https://buymeacoffee.com/ripplebiz>.
+
+Support Liam Cottle's smartphone client development by unlocking the server administration wait gate with in-app purchase
+
+Support Rastislav Vysoky (recrof)'s flasher web site and the map web site development through [PayPal](https://www.paypal.com/donate/?business=DREHF5HM265ES&no_recurring=0&item_name=If+you+enjoy+my+work%2C+you+can+support+me+here%3A&currency_code=EUR) or [Revolut](https://revolut.me/recrof)
 
 ### Q: How do I build MeshCore firmware from source?
 **A:** See instructions here:  
