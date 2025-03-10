@@ -291,7 +291,8 @@ You can get the epoch time on <https://www.epochconverter.com/> and use it to se
 ## Other Questions:
 ### Q: How to  Update repeater and room server firmware over the air?
 
-**A:** You can update repeater and room server firmware with a bluetooth connection between your smartphone and your LoRa radio using the nRF app.
+**A:** Only nRF-based RAK4631 and Heltec T114 OTA firmware update are verified using nRF smartphone app.  Lilygo T-Echo doesn't work currently.
+You can update repeater and room server firmware with a bluetooth connection between your smartphone and your LoRa radio using the nRF app.
 
 1. Download the ZIP file for the specific node from the web flasher to your smartphone
 2. On the phone client, log on to the repeater as administrator (default password is `password`) to issue the `start ota`command to the repeater or room server to get the device into OTA DFU mode
