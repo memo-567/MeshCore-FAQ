@@ -78,7 +78,7 @@ Ein Raumserver kann auch die Repeater-Funktion übernehmen. Um die Repeater-Funk
 ### F: Wie viele Geräte benötige ich für MeshCore?
 **A:** Wenn du ein unterstütztes Gerät hast, aktualisiere die BLE Companion-Firmware und verwende das Gerät als Client. Du kanst dich über den Smartphone Client per Bluetooth mit dem Gerät verbinden. So kannst du mit anderen MeshCore-Nutzern in deiner Nähe kommunizieren.
 
-Wenn du zwei unterstützte Geräte hast und sich nicht viele MeshCore-Nutzer in Ihrer Nähe befinden, aktualisiere beide auf die BLE Companion-Firmware, damit du mit deinen Freunden und deiner Familie in der Nähe kommunizieren kannst.
+Wenn du zwei unterstützte Geräte hast und sich nicht viele MeshCore-Nutzer in deiner Nähe befinden, aktualisiere beide auf die BLE Companion-Firmware, damit du mit deinen Freunden und deiner Familie in der Nähe kommunizieren kannst.
 
 Wenn du zwei unterstützte Geräte haben und sich andere MeshCore-Nutzer in der Nähe befinden, kannst du eines deiner Geräte mit der BLE Companion-Firmware und das andere unterstützte Gerät mit der Repeater-Firmware aktualisieren. Platziere den Repeater hoch über dem Boden, um die Reichweite deines MeshCore-Netzwerks zu erweitern.
 
@@ -125,7 +125,7 @@ MeshCore-Clients melden sich nur dann selbst an, wenn der Benutzer dies initiier
 
 ### F: Gibt es ein Hop-Limit?
 
-**A:** Die Firmware hat intern ein maximales Limit von 64 Hops. In der Praxis wird es aufgrund der Umgebung und des Timings schwierig sein, an das Limit heranzukommen, da Pakete immer größere Entfernungen zurücklegen. Wir möchten wissen, wie weit Ihre MeshCore-Kommunikation reicht.
+**A:** Die Firmware hat intern ein maximales Limit von 64 Hops. In der Praxis wird es aufgrund der Umgebung und des Timings schwierig sein, an das Limit heranzukommen, da Pakete immer größere Entfernungen zurücklegen. Wir möchten wissen, wie weit deine MeshCore-Kommunikation reicht.
 
 ---
 
@@ -134,7 +134,7 @@ MeshCore-Clients melden sich nur dann selbst an, wenn der Benutzer dies initiier
 ### F: Wie konfiguriert man einen Repeater oder einen Raumserver?
 **A:** Einer dieser Server kann mit einer der folgenden Optionen verwaltet werden:
 - Verbinde das Servergerät per USB-Kabel mit einem Computer mit Chrome unter https://flasher.meshcore.co.uk/ und verwende dann die Konsolenfunktion, um eine Verbindung zum Gerät herzustellen.
-- Dies ist erforderlich, um die Frequenz des Servergeräts einzustellen, falls diese nicht mit der Frequenz deiner Region oder Ihres Landes übereinstimmt.
+- Dies ist erforderlich, um die Frequenz des Servergeräts einzustellen, falls diese nicht mit der Frequenz deiner Region oder deines Landes übereinstimmt.
 - MeshCore-Smart-Device-Clients können Server fernverwalten.
 - Ein T-Deck mit freigeschalteter/registrierter MeshCore-Firmware. Die Fernverwaltung des Servers wird durch die Registrierung deines T-Decks bei Ripple Radios ermöglicht. Dies ist eine Möglichkeit, die MeshCore-Entwicklung zu unterstützen. Du kannst dein T-Deck hier registrieren:
 <https://buymeacoffee.com/ripplebiz/e/249834>
@@ -266,7 +266,7 @@ Javascript: https://github.com/liamcottle/meshcore.js
 
 ### F: Wie füge ich einen Knoten zur [MeshCore-Karte]([url](https://meshcore.co.uk/map.html)) hinzu?
 **A:** Verbinde dich über die Smartphone-App mit einem BLE-Begleitfunkgerät.
-- Um das mit Ihrem Smartphone verbundene BLE-Begleitfunkgerät zur Karte hinzuzufügen, tippe auf das Werbesymbol und anschließend auf „Anzeigen (In die Zwischenablage)“.
+- Um das mit deinem Smartphone verbundene BLE-Begleitfunkgerät zur Karte hinzuzufügen, tippe auf das Werbesymbol und anschließend auf „Anzeigen (In die Zwischenablage)“.
 - Um einen Repeater oder Raumserver zur Karte hinzuzufügen, tippe auf die drei Punkte neben dem gewünschten Repeater oder Raumserver und anschließend auf „Teilen (In die Zwischenablage)“.
 - Rufe die [MeshCore Map-Website]([url](https://meshcore.co.uk/map.html)) auf, tippe auf das Pluszeichen unten rechts und füge den meshcore://...-Blob ein. Tippe anschließend auf „Knoten hinzufügen“.
 
@@ -298,9 +298,9 @@ Du kannst die Epoch-Zeit unter <https://www.epochconverter.com/> abrufen und dam
 ### F: Wie aktualisiere ich die Firmware von Repeater und Raumserver drahtlos?
 
 **A:** ONur nRF-basierte RAK4631- und Heltec T114-OTA-Firmware-Updates werden mit der nRF-Smartphone-App verifiziert. Lilygo T-Echo funktioniert derzeit nicht.
-Du kannst die Firmware von Repeatern und Raumservern über eine Bluetooth-Verbindung zwischen Ihrem Smartphone und Ihrem LoRa-Radio mithilfe der nRF-App aktualisieren.
+Du kannst die Firmware von Repeatern und Raumservern über eine Bluetooth-Verbindung zwischen deinem Smartphone und deinem LoRa-Radio mithilfe der nRF-App aktualisieren.
 
-1. Lade die ZIP-Datei für den jeweiligen Knoten vom Web-Flasher auf Ihr Smartphone herunter.
+1. Lade die ZIP-Datei für den jeweiligen Knoten vom Web-Flasher auf dein Smartphone herunter.
 2. Melde dich im Telefon-Client als Administrator am Repeater an (Standardkennwort: „password“), um den Befehl „start ota“ an den Repeater oder Raumserver zu senden und das Gerät in den OTA-DFU-Modus zu versetzen.
 
 ![image](https://github.com/user-attachments/assets/889bb81b-7214-4a1c-955a-396b5a05d8ad)
@@ -341,7 +341,7 @@ erscheint oben rechts in der App![Eingefügtes Bild 20250309171919](https://gith
 ![Android nRF Paketanzahl](https://github.com/user-attachments/assets/c092adaf-4cb3-460b-b7ef-8d7f450d602b)
 
 3. Kehre zum Hauptbildschirm zurück.
-4. Ihr LoRa-Gerät sollte sich bereits im DFU-Modus befinden.
+4. Dein LoRa-Gerät sollte sich bereits im DFU-Modus befinden.
 5. Tippe auf Klicke auf „SCANNER“ und anschließend auf „SCANNEN“, um das zu aktualisierende Gerät zu finden. Tippe anschließend auf „VERBINDEN“.
 
 ![Android nRF Scanner Scan Connect](https://github.com/user-attachments/assets/37218717-f167-48b6-a6ca-93d132ef77ca)
