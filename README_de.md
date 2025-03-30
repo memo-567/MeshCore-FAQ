@@ -60,7 +60,7 @@ Die USB Serial Companion-Firmware läuft auf einem unterstützten LoRa-Gerät un
 #### Repeater
 Repeater dienen zur Erweiterung der Reichweite eines MeshCore-Netzwerks. Die Repeater-Firmware läuft auf denselben Geräten wie die Client-Firmware. Die Aufgabe eines Repeaters besteht darin, MeshCore-Pakete an das Zielgerät weiterzuleiten. Im Gegensatz zu anderen LoRa-Mesh-Systemen leitet er **nicht** jedes empfangene Paket weiter oder sendet es erneut. Ein Repeater kann über ein T-Deck mit MeshCore-Firmware und freigeschalteten Fernverwaltungsfunktionen oder über einen BLE Companion-Client, der mit einem Smartphone mit MeshCore-App verbunden ist, ferngesteuert werden.
 
-#### Raoom server
+#### Room server
 Ein Room Server ist ein einfacher BBS-Server zum Teilen von Beiträgen. T-Deck-Geräte mit MeshCore-Firmware oder ein BLE Companion-Client, der mit einem Smartphone mit MeshCore-App verbunden ist, können sich mit einem Raumserver verbinden.
 
 Raumserver speichern den Nachrichtenverlauf und senden ihn an Nutzer. Nutzer, die sich im Raum befinden, können später auf den Nachrichtenverlauf zugreifen. Im Gegensatz zu Kanälen werden Nachrichten entweder empfangen, wenn sie gesendet werden, oder nicht empfangen und verpasst, wenn sich ein Nutzer außerhalb der Reichweite befindet. Raumserver kannst du dir wie einen E-Mail-Server vorstellen, auf denen du später deine E-Mails abrufen kannst.
