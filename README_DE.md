@@ -60,34 +60,35 @@ Die USB Serial Companion-Firmware läuft auf einem unterstützten LoRa-Gerät un
 #### Repeater
 Repeater dienen zur Erweiterung der Reichweite eines MeshCore-Netzwerks. Die Repeater-Firmware läuft auf denselben Geräten wie die Client-Firmware. Die Aufgabe eines Repeaters besteht darin, MeshCore-Pakete an das Zielgerät weiterzuleiten. Im Gegensatz zu anderen LoRa-Mesh-Systemen leitet er **nicht** jedes empfangene Paket weiter oder sendet es erneut. Ein Repeater kann über ein T-Deck mit MeshCore-Firmware und freigeschalteten Fernverwaltungsfunktionen oder über einen BLE Companion-Client, der mit einem Smartphone mit MeshCore-App verbunden ist, ferngesteuert werden.
 
-#### Raumserver
-Ein Raumserver ist ein einfacher BBS-Server zum Teilen von Beiträgen. T-Deck-Geräte mit MeshCore-Firmware oder ein BLE Companion-Client, der mit einem Smartphone mit MeshCore-App verbunden ist, können sich mit einem Raumserver verbinden.
+#### Raoom server
+Ein Room Server ist ein einfacher BBS-Server zum Teilen von Beiträgen. T-Deck-Geräte mit MeshCore-Firmware oder ein BLE Companion-Client, der mit einem Smartphone mit MeshCore-App verbunden ist, können sich mit einem Raumserver verbinden.
 
-Raumserver speichern den Nachrichtenverlauf und senden ihn an Nutzer. Nutzer, die sich im Raum befinden, können später auf den Nachrichtenverlauf zugreifen. Im Gegensatz zu Kanälen werden Nachrichten entweder empfangen, wenn sie gesendet werden, oder nicht empfangen und verpasst, wenn sich ein Nutzer außerhalb der Reichweite befindet. Raumserver können Sie sich wie E-Mail-Server vorstellen, auf denen Sie später Ihre E-Mails abrufen können.
+Raumserver speichern den Nachrichtenverlauf und senden ihn an Nutzer. Nutzer, die sich im Raum befinden, können später auf den Nachrichtenverlauf zugreifen. Im Gegensatz zu Kanälen werden Nachrichten entweder empfangen, wenn sie gesendet werden, oder nicht empfangen und verpasst, wenn sich ein Nutzer außerhalb der Reichweite befindet. Raumserver kannst du dir wie einen E-Mail-Server vorstellen, auf denen du später deine E-Mails abrufen kannst.
 
 Ein Raumserver kann per Fernzugriff über ein T-Deck mit MeshCore-Firmware und freigeschalteten Fernverwaltungsfunktionen oder über einen BLE Companion Client, der mit einem Smartphone mit MeshCore-App verbunden ist, verwaltet werden.
 
 Wenn sich ein Client bei einem Raumserver anmeldet, erhält er die zuvor nicht angezeigten 16 Nachrichten.
 
-Ein Raumserver kann auch die Repeater-Funktion übernehmen. Um die Repeater-Funktion auf einem Raumserver zu aktivieren, verwenden diesen Befehl 
+Ein Raumserver kann auch die Repeater-Funktion übernehmen. Um die Repeater-Funktion auf einem Raumserver zu aktivieren, verwende diesen Befehl 
+
 `set repeat {on|off}`
 
 ## Ersteinrichtung
 
 ### F: Wie viele Geräte benötige ich für MeshCore?
-**A:** Wenn Sie ein unterstütztes Gerät haben, aktualisieren Sie die BLE Companion-Firmware und verwenden Sie Ihr Gerät als Client. Sie können sich über den Android-Client per Bluetooth mit dem Gerät verbinden (der iOS-Client wird später verfügbar sein). So können Sie mit anderen MeshCore-Nutzern in Ihrer Nähe kommunizieren.
+**A:** Wenn du ein unterstütztes Gerät hast, aktualisiere die BLE Companion-Firmware und verwende das Gerät als Client. Du kanst dich über den Smartphone Client per Bluetooth mit dem Gerät verbinden. So kannst du mit anderen MeshCore-Nutzern in deiner Nähe kommunizieren.
 
-Wenn Sie zwei unterstützte Geräte haben und sich nicht viele MeshCore-Nutzer in Ihrer Nähe befinden, aktualisieren Sie beide auf die BLE Companion-Firmware, damit Sie mit Ihren Freunden und Ihrer Familie in der Nähe kommunizieren können.
+Wenn du zwei unterstützte Geräte hast und sich nicht viele MeshCore-Nutzer in Ihrer Nähe befinden, aktualisiere beide auf die BLE Companion-Firmware, damit du mit deinen Freunden und deiner Familie in der Nähe kommunizieren kannst.
 
-Wenn Sie zwei unterstützte Geräte haben und sich andere MeshCore-Nutzer in der Nähe befinden, können Sie eines Ihrer Geräte mit der BLE Companion-Firmware und das andere unterstützte Gerät mit der Repeater-Firmware aktualisieren. Platzieren Sie den Repeater hoch über dem Boden, um die Reichweite Ihres MeshCore-Netzwerks zu erweitern.
+Wenn du zwei unterstützte Geräte haben und sich andere MeshCore-Nutzer in der Nähe befinden, kannst du eines deiner Geräte mit der BLE Companion-Firmware und das andere unterstützte Gerät mit der Repeater-Firmware aktualisieren. Platziere den Repeater hoch über dem Boden, um die Reichweite deines MeshCore-Netzwerks zu erweitern.
 
-Nachdem Sie die neueste Firmware auf Ihren Repeater geladen haben, lassen Sie das Gerät über USB mit Ihrem Computer verbunden. Nutzen Sie die Konsolenfunktion des Web-Flashers und stellen Sie die Frequenz für Ihre Region oder Ihr Land ein, damit Ihr Client den Repeater oder Raumserver per Funk fernsteuern kann:
+Nachdem du die neueste Firmware auf deinen Repeater geladen hast, lasse das Gerät sich über USB mit deinem Computer verbunden. Nutze die Konsolenfunktion des Web-Flashers und stelle die Frequenz für deine Region oder dein Land ein, damit dein Client den Repeater oder Raumserver per Funk fernsteuern kann:
 
 `set freq {frequency}`
 
-Die CLI-Referenz für Repeater und Raumserver finden Sie hier: https://github.com/ripplebiz/MeshCore/wiki/Repeater-&-Room-Server-CLI-Reference
+Die CLI-Referenz für Repeater und Raumserver findest du hier: https://github.com/ripplebiz/MeshCore/wiki/Repeater-&-Room-Server-CLI-Reference
 
-Wenn Sie über weitere unterstützte Geräte verfügen, können Sie diese mit der Raumserver-Firmware nutzen.
+Wenn du über weitere unterstützte Geräte verfügst, kannst du diese mit der Raumserver-Firmware nutzen.
 
 ### F: Kostet MeshCore etwas?
 
@@ -95,27 +96,27 @@ Wenn Sie über weitere unterstützte Geräte verfügen, können Sie diese mit de
 
 Der native Android- und iOS-Client nutzt das Freemium-Modell und wurde von Liam Cottle, dem Entwickler der meshtastic-Karte unter [meshtastic.liamcottle.net](https://meshtastic.liamcottle.net) auf [github ](https://github.com/liamcottle/meshtastic-map) und [reticulum-meshchat auf github](https://github.com/liamcottle/reticulum-meshchat), entwickelt.
 
-Die T-Deck-Firmware kann kostenlos heruntergeladen werden, und die meisten Funktionen sind kostenlos verfügbar. Um den Firmware-Entwickler zu unterstützen, können Sie einen Registrierungsschlüssel erwerben, um Ihr T-Deck für tiefere Kartenzooms und die Remote-Serververwaltung über Funk freizuschalten. Sie müssen nicht für die Registrierung bezahlen, um Ihr T-Deck für Direktnachrichten und die Verbindung mit Repeatern und Raumservern zu nutzen.
+Die T-Deck-Firmware kann kostenlos heruntergeladen werden, und die meisten Funktionen sind kostenlos verfügbar. Um den Firmware-Entwickler zu unterstützen, kannst du einen Registrierungsschlüssel erwerben, um dein T-Deck für tiefere Kartenzooms und die Remote-Serververwaltung über Funk freizuschalten.Eine Registrierung ist nicht erforderlich, um dein T-Deck für Direktnachrichten und die Verbindung mit Repeatern und Raumservern zu nutzen.
 
 ### F: Welche Frequenzen werden von MeshCore unterstützt?
-**A:** Es unterstützt den 868-MHz-Bereich in Großbritannien/der EU und den 915-MHz-Bereich in Neuseeland, Australien und den USA. Länder und Regionen in diesen beiden Frequenzbereichen werden ebenfalls unterstützt. Die Firmware und der Client ermöglichen es Nutzern, ihre bevorzugte Frequenz einzustellen.
+**A:** Es unterstützt den 868-MHz-Bereich in Großbritannien / der EU und den 915-MHz-Bereich in Neuseeland, Australien und den USA. Länder und Regionen in diesen beiden Frequenzbereichen werden ebenfalls unterstützt. Die Firmware und der Client ermöglichen es Nutzern, ihre bevorzugte Frequenz einzustellen.
 
 – Australien und Neuseeland nutzen **915,8 MHz**
 – Großbritannien und die EU nutzen **869,525 MHz**
 – Kanada und die USA nutzen **910,525 MHz**
-– Für andere Regionen und Länder überprüfen Sie bitte Ihre lokale LoRa-Frequenz.
+– Für andere Regionen und Länder überprüfe bitte deine lokale LoRa-Frequenz.
 
 Die restlichen Funkeinstellungen sind für alle Frequenzen gleich:
-– Spread-Faktor (SF): 10
+– Spread-Faktor (SF): 11
 – Kodierungsrate (CR): 5
 – Bandbreite (BW): 250,00
 
-### F: Was ist eine „Werbung“ in MeshCore?
+### F: Was ist ein „Advert“ in MeshCore?
 
 **A:**
-Werbung bedeutet, sich im Netzwerk bekannt zu machen. Im Reticulum-Bereich bedeutet es eine Ankündigung. Im Meshtastic-Bereich bedeutet es, dass der Knoten seine Knoteninformationen sendet. MeshCore ermöglicht die manuelle Übertragung Ihres Namens, Ihrer Position und Ihres öffentlichen Verschlüsselungsschlüssels. Dieser ist zudem signiert, um Spoofing zu verhindern. Wenn Sie auf die Schaltfläche „Anzeige“ klicken, werden diese Daten über LoRa übertragen. MeshCore nennt dies eine Anzeige. Es gibt zwei Möglichkeiten der Anzeige: „Zero Hop“ und „Flood“.
+Advert bedeutet, sich im Netzwerk bekannt zu machen. Im Reticulum-Bereich bedeutet es eine Ankündigung. Im Meshtastic-Bereich bedeutet es, dass der Knoten seine Knoteninformationen sendet. MeshCore ermöglicht die manuelle Übertragung deines Namens, deiner Position und deines öffentlichen Verschlüsselungs Keys. Dieser ist zudem signiert, um Spoofing zu verhindern. Wenn du auf die Schaltfläche „Anzeige“ klickst, werden diese Daten über LoRa übertragen. MeshCore nennt dies advert. Es gibt zwei Möglichkeiten des advert: „Zero Hop“ und „Flood“.
 
-* Zero Hop bedeutet, dass Ihre Anzeige an alle Hörer gesendet wird.
+* Zero Hop bedeutet, dass sie an alle Hörer gesendet wird.
 * Flooded bedeutet, dass sie gesendet und anschließend von allen Repeatern, die sie hören, wiederholt wird.
 
 MeshCore-Clients melden sich nur dann selbst an, wenn der Benutzer dies initiiert. Ein Repeater (und Raumserver?) meldet seine Anwesenheit alle 240 Minuten. Dieses Intervall kann mit folgendem Befehl konfiguriert werden:
@@ -132,32 +133,32 @@ MeshCore-Clients melden sich nur dann selbst an, wenn der Benutzer dies initiier
 
 ### F: Wie konfiguriert man einen Repeater oder einen Raumserver?
 **A:** Einer dieser Server kann mit einer der folgenden Optionen verwaltet werden:
-- Verbinden Sie das Servergerät per USB-Kabel mit einem Computer mit Chrome unter https://flasher.meshcore.co.uk/ und verwenden Sie dann die Konsolenfunktion, um eine Verbindung zum Gerät herzustellen.
-- Dies ist erforderlich, um die Frequenz des Servergeräts einzustellen, falls diese nicht mit der Frequenz Ihrer Region oder Ihres Landes übereinstimmt.
+- Verbinde das Servergerät per USB-Kabel mit einem Computer mit Chrome unter https://flasher.meshcore.co.uk/ und verwende dann die Konsolenfunktion, um eine Verbindung zum Gerät herzustellen.
+- Dies ist erforderlich, um die Frequenz des Servergeräts einzustellen, falls diese nicht mit der Frequenz deiner Region oder Ihres Landes übereinstimmt.
 - MeshCore-Smart-Device-Clients können Server fernverwalten.
-- Ein T-Deck mit freigeschalteter/registrierter MeshCore-Firmware. Die Fernverwaltung des Servers wird durch die Registrierung Ihres T-Decks bei Ripple Radios ermöglicht. Dies ist eine Möglichkeit, die MeshCore-Entwicklung zu unterstützen. Sie können Ihr T-Deck hier registrieren:
+- Ein T-Deck mit freigeschalteter/registrierter MeshCore-Firmware. Die Fernverwaltung des Servers wird durch die Registrierung deines T-Decks bei Ripple Radios ermöglicht. Dies ist eine Möglichkeit, die MeshCore-Entwicklung zu unterstützen. Du kannst dein T-Deck hier registrieren:
 <https://buymeacoffee.com/ripplebiz/e/249834>
 
 ### F: Muss ich den Standort eines Repeaters festlegen?
-**A:** Wenn der Standort eines Repeaters festgelegt ist, kann dieser zukünftig auf einer MeshCore-Karte angezeigt werden. Legen Sie den Standort mit den folgenden Befehlen fest:
+**A:** Wenn der Standort eines Repeaters festgelegt ist, kann dieser zukünftig auf einer MeshCore-Karte angezeigt werden. Lege den Standort mit den folgenden Befehlen fest:
 
 `set lat <GPS Lat> set long <GPS Lon>`
 
-Sie können den Breiten- und Längengrad von Google Maps abrufen, indem Sie mit der rechten Maustaste auf Ihren Standort auf der Karte klicken.
+Du kanst den Breiten- und Längengrad von Google Maps abrufen, indem du mit der rechten Maustaste auf deinen Standort auf der Karte klicken.
 
 ### F: Wie lautet das Passwort für die Verwaltung eines Repeaters oder Raumservers?
-**A:** Das Standard-Administratorpasswort für einen Repeater und einen Raumserver lautet „password“. Verwenden Sie den folgenden Befehl, um das Administratorpasswort zu ändern:
+**A:** Das Standard-Administratorpasswort für einen Repeater und einen Raumserver lautet „password“. Verwende den folgenden Befehl, um das Administratorpasswort zu ändern:
 
 `password {new-password}`
 
 ### F: Wie lautet das Passwort für den Beitritt zu einem Raumserver?
-**A:** Das Standard-Gastpasswort für einen Raumserver lautet „hello“. Verwenden Sie den folgenden Befehl, um das Gastpasswort zu ändern:
+**A:** Das Standard-Gastpasswort für einen Raumserver lautet „hello“. Verwende den folgenden Befehl, um das Gastpasswort zu ändern:
 
 `set guest.password {guest-password}`
 
 ---
 
-## T-Deck-Bezug
+## T-Deck
 
 ### F: Wie versetze ich ein T-Deck in den DFU-Modus (Device Firmware Update)?
 **A:**
@@ -167,20 +168,20 @@ Sie können den Breiten- und Längengrad von Google Maps abrufen, indem Sie mit 
 4. Gerät einschalten
 5. USB-Verbindungston hören
 6. Trackball loslassen
-7. T-Deck jetzt im DFU-Modus
-8. Jetzt können Sie mit dem Flashen über <https://flasher.meshcore.co.uk/> beginnen.
+7. Das T-Deck ist jetzt im DFU-Modus
+8. Jetzt kannst du mit dem Flashen über <https://flasher.meshcore.co.uk/> beginnen.
 
 ### F: Warum empfängt mein T-Deck Plus keine Satellitenverbindung?
-**A:** Beim T-Deck Plus sollte die GPS-Baudrate auf **38400** eingestellt sein. Außerdem wurde bei einigen T-Deck Plus-Geräten festgestellt, dass das GPS-Modul verkehrt herum eingebaut war, d. h. die GPS-Antenne zeigte nach unten statt nach oben. Wenn Ihr T-Deck Plus nach dem Einstellen der Baudrate auf 38400 immer noch keine Satellitenverbindung empfängt, müssen Sie das Gerät möglicherweise öffnen, um die GPS-Ausrichtung zu überprüfen.
+**A:** Beim T-Deck Plus sollte die GPS-Baudrate auf **38400** eingestellt sein. Außerdem wurde bei einigen T-Deck Plus-Geräten festgestellt, dass das GPS-Modul verkehrt herum eingebaut war, d. h. die GPS-Antenne zeigte nach unten statt nach oben. Wenn dein T-Deck Plus nach dem Einstellen der Baudrate auf 38400 immer noch keine Satellitenverbindung empfängt, mustt du das Gerät möglicherweise öffnen, um die GPS-Ausrichtung zu überprüfen.
 
 ### F: Warum empfängt mein OG (nicht Plus) T-Deck keine Satellitenverbindung?
-**A:** Das OG (nicht Plus) T-Deck wird ohne GPS geliefert. Wenn Sie Ihrem OG T-Deck ein GPS hinzugefügt haben, lesen Sie bitte in der Bedienungsanleitung Ihres GPS nach, welche Baudrate erforderlich ist. Alternativ können Sie versuchen, eine Baudrate von 9600, 19200 usw. bis 115200 einzustellen, um zu sehen, welche funktioniert.
+**A:** Das OG (nicht Plus) T-Deck wird ohne GPS geliefert. Wenn du deinem OG T-Deck ein GPS hinzugefügt hast, lese bitte in der Bedienungsanleitung deines GPS nach, welche Baudrate erforderlich ist. Alternativ kannst du versuchen, eine Baudrate von 9600, 19200 usw. bis 115200 einzustellen, um zu sehen, welche funktioniert.
 
 ### F: Welche SD-Kartengröße unterstützt das T-Deck?
-**A:** Nutzer hatten keine Probleme mit 16-GB- oder 32-GB-SD-Karten. Formatieren Sie die SD-Karte im **FAT32**-Format.
+**A:** Nutzer hatten keine Probleme mit 16-GB- oder 32-GB-SD-Karten. Formatiere die SD-Karte im **FAT32**-Format.
 
 ### F: Wie erhalte ich Karten auf T-Deck?
-**A:** Sie benötigen Kartenkacheln. Hier können Sie vorab heruntergeladene Kartenkacheln herunterladen (eine gute Möglichkeit, die Entwicklung zu unterstützen):
+**A:** Du benötigst Kartenkacheln. Hier kannst du vorab heruntergeladene Kartenkacheln herunterladen (eine gute Möglichkeit, die Entwicklung zu unterstützen):
 - <https://buymeacoffee.com/ripplebiz/e/342543> (Europa)
 - <https://buymeacoffee.com/ripplebiz/e/342542> (USA)
 
@@ -194,10 +195,10 @@ Kartenkacheln für Großbritannien sind separat von Andy Kirby auf seinem Discor
 <https://discord.com/channels/826570251612323860/1330643963501351004/1331346597367386224>
 
 ### F: Wohin werden die Kartenkacheln verschoben?
-Nachdem Sie die Kacheln heruntergeladen haben, kopieren Sie den Ordner „\tiles“ in das Stammverzeichnis der SD-Karte Ihres T-Decks.
+Nachdem du die Kacheln heruntergeladen hast, kopiere den Ordner „\tiles“ in das Stammverzeichnis der SD-Karte deines T-Decks.
 
 ### F: Wie schalte ich den erweiterten Kartenzoom und die Serververwaltungsfunktionen auf dem T-Deck frei?
-**A:** Sie können die T-Deck-Firmware kostenlos herunterladen, installieren und nutzen. Einige Funktionen (Kartenzoom, Serververwaltung) werden jedoch erst nach dem Kauf eines Freischaltcodes für 10 $ pro T-Deck-Gerät freigeschaltet.
+**A:** Du kannst die T-Deck-Firmware kostenlos herunterladen, installieren und nutzen. Einige Funktionen (Kartenzoom, Serververwaltung) werden jedoch erst nach dem Kauf eines Freischaltcodes für 10 $ pro T-Deck-Gerät freigeschaltet.
 Freischaltseite: <https://buymeacoffee.com/ripplebiz/e/249834>
 
 ### F: Der Ton des T-Decks ist zu laut?
@@ -219,7 +220,7 @@ Freischaltseite: <https://buymeacoffee.com/ripplebiz/e/249834>
 
 **BW steht für Bandbreite** – Breite des für die Übertragung genutzten Frequenzspektrums.
 
-**SF steht für Spreizfaktor** – wie weit soll sich die Kommunikation zeitlich ausbreiten?
+**SF steht für Spreizfaktor** – Wie weit soll sich die Kommunikation zeitlich ausbreiten?
 
 **CR steht für Codierungsrate** – https://www.thethingsnetwork.org/docs/lorawan/fec-and-code-rate/
 Eine Verdoppelung der Bandbreite (von BW125 auf BW250) ermöglicht die Übertragung von doppelt so vielen Bytes in der gleichen Zeit. Eine Verringerung des Spreizfaktors um eine Stufe (von SF10 auf SF9) ermöglicht die Übertragung von doppelt so vielen Bytes in der gleichen Zeit.
@@ -230,7 +231,7 @@ Es ist also ein Balanceakt zwischen Übertragungsgeschwindigkeit und Störfestig
 
 ### F: Was passiert, wenn ein Knoten eine Route über einen mobilen Repeater lernt und dieser nicht mehr erreichbar ist?
 
-**A:** Wenn Sie einen Knoten bisher über einen Repeater erreicht haben und dieser nicht mehr erreichbar ist, sendet der Client die Nachricht über den bestehenden (aber nun unterbrochenen) bekannten Pfad. Die Nachricht schlägt nach drei Versuchen fehl, und die App setzt den Pfad zurück und sendet die Nachricht beim letzten Versuch standardmäßig als Flood. Diese Funktion kann in den Einstellungen deaktiviert werden. Ist das Ziel direkt oder über einen anderen Repeater erreichbar, wird der neue Pfad verwendet. Alternativ können Sie den Pfad manuell festlegen, wenn Sie einen bestimmten Repeater kennen, der zum Erreichen des Ziels verwendet werden soll.
+**A:** Wenn du einen Knoten bisher über einen Repeater erreicht hast und dieser nicht mehr erreichbar ist, sendet der Client die Nachricht über den bestehenden (aber nun unterbrochenen) bekannten Pfad. Die Nachricht schlägt nach drei Versuchen fehl, und die App setzt den Pfad zurück und sendet die Nachricht beim letzten Versuch standardmäßig als Flood. Diese Funktion kann in den Einstellungen deaktiviert werden. Ist das Ziel direkt oder über einen anderen Repeater erreichbar, wird der neue Pfad verwendet. Alternativannst du den Pfad manuell festlegen, wenn du einen bestimmten Repeater kennst, der zum Erreichen des Ziels verwendet werden soll.
 
 Wenn Benutzer häufig unterwegs sind und die Pfade unterbrochen werden, sehen sie lediglich, dass der Telefonclient erneut versucht, den Pfad wiederherzustellen, und greifen auf Flood zurück, um den Pfad wiederherzustellen.
 
@@ -239,14 +240,14 @@ Wenn Benutzer häufig unterwegs sind und die Pfade unterbrochen werden, sehen si
 - Firmware-Repository: <https://github.com/ripplebiz/MeshCore>
 
 ### F: Wie kann ich MeshCore unterstützen?
-**A:** Geben Sie Ihr ehrliches Feedback auf GitHub und auf AndyKirbys Discord-Server <http://discord.com/invite/H62Re4DCeD>. Erzählen Sie Ihren Freunden und Communitys von MeshCore und helfen Sie ihnen beim Einstieg in MeshCore. Unterstützen Sie Scotts MeshCore-Entwicklung unter <https://buymeacoffee.com/ripplebiz>.
+**A:** Gebe dein ehrliches Feedback auf GitHub und auf AndyKirbys Discord-Server <http://discord.com/invite/H62Re4DCeD>. Erzähle deinen Freunden und Communitys von MeshCore und helfe ihnen beim Einstieg in MeshCore. Unterstütze Scotts MeshCore-Entwicklung unter <https://buymeacoffee.com/ripplebiz>.
 
-Unterstützen Sie Liam Cottle bei der Entwicklung seines Smartphone-Clients, indem Sie die Warteschleife für die Serveradministration per In-App-Kauf freischalten.
+Unterstütze Liam Cottle bei der Entwicklung seines Smartphone-Clients, indem du die Warteschleife für die Serveradministration per In-App-Kauf freischalten.
 
-Unterstützen Sie Rastislav Vysoky (recrof) bei der Entwicklung seiner Flasher-Website und der Kartenwebsite über [PayPal](https://www.paypal.com/donate/?business=DREHF5HM265ES&no_recurring=0&item_name=If+you+enjoy+my+work%2C+you+can+support+me+here%3A&currency_code=EUR) oder [Revolut](https://revolut.me/recrof)
+Unterstütze Rastislav Vysoky (recrof) bei der Entwicklung seiner Flasher-Website und der Kartenwebsite über [PayPal](https://www.paypal.com/donate/?business=DREHF5HM265ES&no_recurring=0&item_name=If+you+enjoy+my+work%2C+you+can+support+me+here%3A&currency_code=EUR) oder [Revolut](https://revolut.me/recrof)
 
 ### F: Wie erstelle ich MeshCore-Firmware aus dem Quellcode?
-**A:** Anleitungen finden Sie hier:
+**A:** Anleitungen findest du hier:
 <https://discord.com/channels/826570251612323860/1330643963501351004/1342120825251299388>
 
 Andy hat auch ein Video zur Erstellung mit VS Code:
@@ -264,10 +265,10 @@ Javascript: https://github.com/liamcottle/meshcore.js
 **A:** ATAK ist derzeit nicht in MeshCores Roadmap enthalten.
 
 ### F: Wie füge ich einen Knoten zur [MeshCore-Karte]([url](https://meshcore.co.uk/map.html)) hinzu?
-**A:** Verbinden Sie sich über die Smartphone-App mit einem BLE-Begleitfunkgerät.
-- Um das mit Ihrem Smartphone verbundene BLE-Begleitfunkgerät zur Karte hinzuzufügen, tippen Sie auf das Werbesymbol und anschließend auf „Anzeigen (In die Zwischenablage)“.
-- Um einen Repeater oder Raumserver zur Karte hinzuzufügen, tippen Sie auf die drei Punkte neben dem gewünschten Repeater oder Raumserver und anschließend auf „Teilen (In die Zwischenablage)“.
-- Rufen Sie die [MeshCore Map-Website]([url](https://meshcore.co.uk/map.html)) auf, tippen Sie auf das Pluszeichen unten rechts und fügen Sie den meshcore://...-Blob ein. Tippen Sie anschließend auf „Knoten hinzufügen“.
+**A:** Verbinde dich über die Smartphone-App mit einem BLE-Begleitfunkgerät.
+- Um das mit Ihrem Smartphone verbundene BLE-Begleitfunkgerät zur Karte hinzuzufügen, tippe auf das Werbesymbol und anschließend auf „Anzeigen (In die Zwischenablage)“.
+- Um einen Repeater oder Raumserver zur Karte hinzuzufügen, tippe auf die drei Punkte neben dem gewünschten Repeater oder Raumserver und anschließend auf „Teilen (In die Zwischenablage)“.
+- Rufe die [MeshCore Map-Website]([url](https://meshcore.co.uk/map.html)) auf, tippe auf das Pluszeichen unten rechts und füge den meshcore://...-Blob ein. Tippe anschließend auf „Knoten hinzufügen“.
 
 ---
 
@@ -276,13 +277,13 @@ Javascript: https://github.com/liamcottle/meshcore.js
 ### F: Mein Client meldet, dass ein anderer Client, Repeater oder Raumserver zuletzt vor vielen Tagen gesehen wurde.
 ### F: Ein Repeater, Client oder Raumserver, den ich in meiner Erkennungsliste (auf dem T-Deck) oder Kontaktliste (auf einem Smart-Device-Client) erwarte, ist nicht aufgeführt.
 **A:**
-- Wenn Ihr Client ein T-Deck ist, ist möglicherweise die Uhrzeit nicht eingestellt (kein GPS installiert, keine GPS-Verbindung oder falsche GPS-Baudrate).
-- Wenn Sie den Android- oder iOS-Client verwenden, zeigt der andere Client, Repeater oder Raumserver möglicherweise die falsche Uhrzeit an.
+- Wenn dein Client ein T-Deck ist, ist möglicherweise die Uhrzeit nicht eingestellt (kein GPS installiert, keine GPS-Verbindung oder falsche GPS-Baudrate).
+- Wenn du den Android- oder iOS-Client verwenden, zeigt der andere Client, Repeater oder Raumserver möglicherweise die falsche Uhrzeit an.
 
-Sie können die Epoch-Zeit unter <https://www.epochconverter.com/> abrufen und damit Ihre T-Deck-Uhr einstellen. Bei Repeatern und Raumservern kann der Administrator die Uhr über ein T-Deck fernsteuern (Uhrsynchronisierung) oder den Befehl „time“ in der seriellen USB-Konsole verwenden, während das Servergerät angeschlossen ist.
+Du kannst die Epoch-Zeit unter <https://www.epochconverter.com/> abrufen und damit deine T-Deck-Uhr einstellen. Bei Repeatern und Raumservern kann der Administrator die Uhr über ein T-Deck fernsteuern (Uhrsynchronisierung) oder den Befehl „time“ in der seriellen USB-Konsole verwenden, während das Servergerät angeschlossen ist.
 
 ### F: Wie verbinde ich mich per BLE (Bluetooth) mit einem Repeater?
-**A:** Sie können keine Bluetooth-Verbindung zu einem Gerät mit Repeater-Firmware herstellen. Geräte mit der BLE-Companion-Firmware können über die Android-App per Bluetooth verbunden werden.
+**A:** Du kannst keine Bluetooth-Verbindung zu einem Gerät mit Repeater-Firmware herstellen. Geräte mit der BLE-Companion-Firmware können über die Android-App per Bluetooth verbunden werden.
 
 ### F: Ich kann keine Bluetooth-Verbindung herstellen. Wie lautet der Bluetooth-Kopplungscode?
 
@@ -297,15 +298,15 @@ Sie können die Epoch-Zeit unter <https://www.epochconverter.com/> abrufen und d
 ### F: Wie aktualisiere ich die Firmware von Repeater und Raumserver drahtlos?
 
 **A:** ONur nRF-basierte RAK4631- und Heltec T114-OTA-Firmware-Updates werden mit der nRF-Smartphone-App verifiziert. Lilygo T-Echo funktioniert derzeit nicht.
-Sie können die Firmware von Repeatern und Raumservern über eine Bluetooth-Verbindung zwischen Ihrem Smartphone und Ihrem LoRa-Radio mithilfe der nRF-App aktualisieren.
+Du kannst die Firmware von Repeatern und Raumservern über eine Bluetooth-Verbindung zwischen Ihrem Smartphone und Ihrem LoRa-Radio mithilfe der nRF-App aktualisieren.
 
-1. Laden Sie die ZIP-Datei für den jeweiligen Knoten vom Web-Flasher auf Ihr Smartphone herunter.
-2. Melden Sie sich im Telefon-Client als Administrator am Repeater an (Standardkennwort: „password“), um den Befehl „start ota“ an den Repeater oder Raumserver zu senden und das Gerät in den OTA-DFU-Modus zu versetzen.
+1. Lade die ZIP-Datei für den jeweiligen Knoten vom Web-Flasher auf Ihr Smartphone herunter.
+2. Melde dich im Telefon-Client als Administrator am Repeater an (Standardkennwort: „password“), um den Befehl „start ota“ an den Repeater oder Raumserver zu senden und das Gerät in den OTA-DFU-Modus zu versetzen.
 
 ![image](https://github.com/user-attachments/assets/889bb81b-7214-4a1c-955a-396b5a05d8ad)
 1. „start ota“ kann über die USB-Seriell-Konsole auf der Web-Flasher-Seite oder über ein T-Deck gestartet werden.
-4. Laden Sie die nRF-App auf Ihrem Smartphone herunter, starten Sie sie und suchen Sie nach Bluetooth-Geräten.
-5. Verbinden Sie sich mit dem zu aktualisierenden Repeater/Raumserverknoten.
+4. Lade die nRF-App auf deinem Smartphone herunter, starte sie und suchen nach Bluetooth-Geräten.
+5. Verbinde dich mit dem zu aktualisierenden Repeater/Raumserverknoten.
 1. Die nRF-App ist sowohl für Android als auch für iOS verfügbar.
 
 **Android fährt nach dem iOS-Abschnitt fort:**
@@ -314,20 +315,20 @@ Sie können die Firmware von Repeatern und Raumservern über eine Bluetooth-Verb
 5. Nach erfolgreicher Verbindung wird ein „DFU“-Symbol angezeigt. ![Eingefügtes Bild 20250309173039](https://github.com/user-attachments/assets/af7a9f78-8739-4946-b734-02bade9c8e71)
 erscheint oben rechts in der App![Eingefügtes Bild 20250309171919](https://github.com/user-attachments/assets/08007ec8-4924-49c1-989f-ca2611e78793)
 
-6. Scrollen Sie nach unten, um die PRN-Nummer(n) zu ändern:
+6. Scrolle nach unten, um die PRN-Nummer(n) zu ändern:
 
 ![Eingefügtes Bild 20250309190158](https://github.com/user-attachments/assets/11f69cdd-12f3-4696-a6fc-14a78c85fe32)
 
-- Für T114 ändern Sie die Anzahl der Pakete (PRN(s)) auf 8.
+- Für T114 ändere die Anzahl der Pakete (PRN(s)) auf 8.
 - Für RAK können es 10 sein, es funktioniert aber auch mit 8.
 
-7. Klicken Sie auf das DFU-Symbol ![Bild eingefügt 20250309173039](https://github.com/user-attachments/assets/af7a9f78-8739-4946-b734-02bade9c8e71), wählen Sie den Dateityp zum Hochladen (ZIP) und wählen Sie anschließend die ZIP-Datei aus, die Sie zuvor vom Web Flasher heruntergeladen haben.
+7. Klicke auf das DFU-Symbol ![Bild eingefügt 20250309173039](https://github.com/user-attachments/assets/af7a9f78-8739-4946-b734-02bade9c8e71), wähle den Dateityp zum Hochladen (ZIP) und wähle anschließend die ZIP-Datei aus, die du zuvor vom Web Flasher heruntergeladen haben.
 8. Der Upload-Vorgang wird nun gestartet. Wenn alles gut geht, wird der Knoten zurückgesetzt und erfolgreich geflasht.
 
 ![Bild eingefügt 20250309190342](https://github.com/user-attachments/assets/a60e25d0-33b8-46cf-af90-20a7d8ac2adb)
 
 **Die Android-Anleitung wird unten fortgesetzt:**
-1. Tippen Sie oben links in der nRF Connect App auf Android auf das 3-Balken-Hamburger-Menü, dann auf „Einstellungen“ und dann auf „nRF5 DFU-Optionen“.
+1. Tippe oben links in der nRF Connect App auf Android auf das 3-Balken-Hamburger-Menü, dann auf „Einstellungen“ und dann auf „nRF5 DFU-Optionen“.
 
 ![Android nRF Hamburger](https://github.com/user-attachments/assets/ea6dfeef-9367-4830-bd70-1441d517c706)
 
@@ -335,25 +336,25 @@ erscheint oben rechts in der App![Eingefügtes Bild 20250309171919](https://gith
 
 ![Android nRF DFU-Optionen](https://github.com/user-attachments/assets/b20e872f-5122-41d9-90df-0215cff5fbc9)
 
-2. Ändern Sie die Paketanzahl auf „10“ für RAK und „8“ für Heltec T114.
+2. Ändere die Paketanzahl auf „10“ für RAK und „8“ für Heltec T114.
 
 ![Android nRF Paketanzahl](https://github.com/user-attachments/assets/c092adaf-4cb3-460b-b7ef-8d7f450d602b)
 
-3. Kehren Sie zum Hauptbildschirm zurück.
+3. Kehre zum Hauptbildschirm zurück.
 4. Ihr LoRa-Gerät sollte sich bereits im DFU-Modus befinden.
-5. Tippen Sie auf Klicken Sie auf „SCANNER“ und anschließend auf „SCANNEN“, um das zu aktualisierende Gerät zu finden. Tippen Sie anschließend auf „VERBINDEN“.
+5. Tippe auf Klicke auf „SCANNER“ und anschließend auf „SCANNEN“, um das zu aktualisierende Gerät zu finden. Tippe anschließend auf „VERBINDEN“.
 
 ![Android nRF Scanner Scan Connect](https://github.com/user-attachments/assets/37218717-f167-48b6-a6ca-93d132ef77ca)
 
-6. Tippen Sie oben links in der nRF Connect App auf das DFU-Symbol neben den drei Punkten.
+6. Tippe oben links in der nRF Connect App auf das DFU-Symbol neben den drei Punkten.
 
 ![Android nRF DFU](https://github.com/user-attachments/assets/1ec3b818-bf0c-461f-8fdf-37c41a63cafa)
 
-7. Wählen Sie „Distributionspaket (ZIP)“ und klicken Sie auf „OK“.
+7. Wähle „Distributionspaket (ZIP)“ und klicke auf „OK“.
 
 ![Android nRF Distributionspaket (ZIP)](https://github.com/user-attachments/assets/e65f5616-9793-44f5-95c0-a3eb15aa7152)
 
-8. Wählen Sie die Firmware-Datei im ZIP-Format aus, die Sie zuvor vom MeshCore Web Flasher heruntergeladen haben. Das Update startet, sobald Sie auf die Datei tippen.
+8. Wähle die Firmware-Datei im ZIP-Format aus, die du zuvor vom MeshCore Web Flasher heruntergeladen haben. Das Update startet, sobald du auf die Datei tippst.
 
 ![Android nRF FW-Aktualisierung](https://github.com/user-attachments/assets/0814d123-85ce-4c87-90a7-e1a25dc71900)
 
