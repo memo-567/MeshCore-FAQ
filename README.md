@@ -300,7 +300,34 @@ Support Rastislav Vysoky (recrof)'s flasher web site and the map web site develo
 
 ### Q: How do I build MeshCore firmware from source?
 **A:** See instructions here:  
-<https://discord.com/channels/826570251612323860/1330643963501351004/1342120825251299388>  
+https://discord.com/channels/826570251612323860/1330643963501351004/1341826372120608769
+
+Build instructions for MeshCore:
+
+For Windows, first install WSL and Python+pip via: https://plainenglish.io/blog/setting-up-python-on-windows-subsystem-for-linux-wsl-26510f1b2d80
+
+(Linux, Windows+WSL) In the terminal/shell:
+```
+sudo apt update
+sudo apt install libpython3-dev
+sudo apt install python3-venv
+```
+Mac: python3 should be already installed.
+
+Then it should be the same for all platforms:
+```
+python3 -m venv meshcore
+cd meshcore && source bin/activate
+pip install -U platformio
+git clone https://github.com/ripplebiz/MeshCore.git 
+cd MeshCore
+```
+open platformio.ini and in `[arduino_base]` edit the `LORA_FREQ=867.5`
+save, then run:
+```
+pio run -e RAK_4631_Repeater
+```
+then you'll find `firmware.zip` in `.pio/build/RAK_4631_Repeater`
 
 Andy also has a video on how to build using VS Code:  
 *How to build and flash Meshcore repeater firmware | Heltec V3*  
