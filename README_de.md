@@ -201,6 +201,25 @@ Nachdem du die Kacheln heruntergeladen hast, kopiere den Ordner „\tiles“ in 
 **A:** Du kannst die T-Deck-Firmware kostenlos herunterladen, installieren und nutzen. Einige Funktionen (Kartenzoom, Serververwaltung) werden jedoch erst nach dem Kauf eines Freischaltcodes für 10 $ pro T-Deck-Gerät freigeschaltet.
 Freischaltseite: <https://buymeacoffee.com/ripplebiz/e/249834>
 
+### F: Wie entziffert man den Diagnosebildschirm auf dem T-Deck?
+ 
+**A:** Der Platz auf dem T-Deck-Bildschirm ist begrenzt, daher sind die Informationen etwas kryptisch. Format:
+ 
+`{hops} l:{packet-length}({payload-len}) t:{packet-type} snr:{n} rssi:{n}`
+ 
+Den Pakettyp findest du hier: [https://github.com/ripplebiz/MeshCore/blob/main/src/Packet.h#L19](https://github.com/ripplebiz/MeshCore/blob/main/src/Packet.h#L19 "https://github.com/ripplebiz/MeshCore/blob/main/src/Packet.h#L19")
+ 
+    #define PAYLOAD_TYPE_REQ 0x00 // request (prefixed with dest/src hashes, MAC) (enc data: timestamp, blob) 
+    #define PAYLOAD_TYPE_RESPONSE 0x01 // response to REQ or ANON_REQ (prefixed with dest/src hashes, MAC) (enc data: timestamp, blob) 
+    #define PAYLOAD_TYPE_TXT_MSG 0x02 // a plain text message (prefixed with dest/src hashes, MAC) (enc data: timestamp, text) 
+    #define PAYLOAD_TYPE_ACK 0x03 // a simple ack #define PAYLOAD_TYPE_ADVERT 0x04 // a node advertising its Identity 
+    #define PAYLOAD_TYPE_GRP_TXT 0x05 // an (unverified) group text message (prefixed with channel hash, MAC) (enc data: timestamp, "name: msg") 
+    #define PAYLOAD_TYPE_GRP_DATA 0x06 // an (unverified) group datagram (prefixed with channel hash, MAC) (enc data: timestamp, blob) 
+    #define PAYLOAD_TYPE_ANON_REQ 0x07 // generic request (prefixed with dest_hash, ephemeral pub_key, MAC) (enc data: ...) 
+    #define PAYLOAD_TYPE_PATH 0x08 // returned path (prefixed with dest/src hashes, MAC) (enc data: path, extra)
+ 
+[Quelle](https://discord.com/channels/1343693475589263471/1343693475589263474/1350611321040932966)
+
 ### F: Der Ton des T-Decks ist zu laut?
 ### F: Kann man den Sound anpassen?
 
@@ -229,11 +248,46 @@ Ein niedrigerer Spreizfaktor erschwert dem Gateway den Empfang einer Übertragun
 
 Es ist also ein Balanceakt zwischen Übertragungsgeschwindigkeit und Störfestigkeit.
 
+### F: Leiten die MeshCore-Clients Nachrichten weiter?
+
+**A:** Nein, MeshCore-Clients leiten keine Nachrichten weiter. Dies ist der Kern des Messaging-orientierten MeshCore-Designs. Dadurch wird verhindert, dass Geräte das Netz überlasten und endlose Kollisionen verursachen, sodass gesendete Nachrichten nicht empfangen werden.
+
+Bei MeshCore leiten nur Repeater und Raumserver mit der Einstellung „Repeat on“ die Nachrichten weiter.
+ 
+
 ### F: Was passiert, wenn ein Knoten eine Route über einen mobilen Repeater lernt und dieser nicht mehr erreichbar ist?
 
 **A:** Wenn du einen Knoten bisher über einen Repeater erreicht hast und dieser nicht mehr erreichbar ist, sendet der Client die Nachricht über den bestehenden (aber nun unterbrochenen) bekannten Pfad. Die Nachricht schlägt nach drei Versuchen fehl, und die App setzt den Pfad zurück und sendet die Nachricht beim letzten Versuch standardmäßig als Flood. Diese Funktion kann in den Einstellungen deaktiviert werden. Ist das Ziel direkt oder über einen anderen Repeater erreichbar, wird der neue Pfad verwendet. Alternativannst du den Pfad manuell festlegen, wenn du einen bestimmten Repeater kennst, der zum Erreichen des Ziels verwendet werden soll.
 
 Wenn Benutzer häufig unterwegs sind und die Pfade unterbrochen werden, sehen sie lediglich, dass der Telefonclient erneut versucht, den Pfad wiederherzustellen, und greifen auf Flood zurück, um den Pfad wiederherzustellen.
+
+### F: Wie findet ein Knoten einen Pfad zu seinem Ziel und verwendet ihn dann, um in Zukunft Nachrichten zu senden, anstatt jede gesendete Nachricht wie Meshtastic zu "flooden"?
+
+Routen werden in der Kontaktliste des Absenders gespeichert. Wenn du eine Nachricht zum ersten Mal sendest, erreicht diese Ihr Ziel zunächst per Flood-Routing. Sobald dein Zielknoten die Nachricht empfängt, sendet er einen Zustellbericht mit allen Repeatern, die die ursprüngliche Nachricht durchlaufen hat, an den Absender zurück. Dieser Zustellbericht wird per Flood-Routing an dich, dem Absender, zurückgesendet und dient als Grundlage für zukünftige direkte Pfade. Beim Senden der nächsten Nachricht wird der Pfad in das Paket eingebettet und von Repeatern ausgewertet. Stimmen Hop und Adresse des Repeaters überein, wird die Nachricht erneut gesendet, andernfalls nicht, wodurch die Auslastung minimiert wird. 
+
+[Quelle](https://discord.com/channels/826570251612323860/1330643963501351004/1351279141630119996)
+ 
+### F: Senden öffentliche Kanäle immer im Flood-Modus? Senden private Kanäle immer im Flood-Modus?
+ 
+**A:** Ja, Gruppenkanäle verlaufen von A nach B, es gibt also keinen definierten Pfad. Sie müssen fluten. Repeater können jedoch den Flood-Verkehr bis zu einem bestimmten Hop-Limit mit dem CLI-Befehl „set flood.max“ unterbinden. Repeater-Administratoren können die Regeln ihrer Repeater festlegen.
+ 
+[Quelle](https://discord.com/channels/1343693475589263471/1343693475589263474/1350023009527664672)
+ 
+### F: Wie lautet der öffentliche Schlüssel für den standardmäßigen öffentlichen Kanal?
+ 
+**A:** Der Schlüssel der Smartphone-App ist im Hexadezimalformat:
+ 
+` 8b3387e9c5cdea6ac9e5edbaa115cd72`
+ 
+T-Deck verwendet den gleichen Schlüssel, aber in Base64
+ 
+`izOH6cXN6mrJ5e26oRXNcg==`
+ 
+Das dritte Zeichen ist der Großbuchstabe „O“, nicht die Null „0“.
+ 
+
+[Quelle](https://discord.com/channels/826570251612323860/1330643963501351004/1354194409213792388)
+
 
 ### F: Ist MeshCore Open Source?
 **A:** Der Großteil der Firmware ist kostenlos verfügbar. Bis auf die T-Deck-Firmware und Liams native mobile Apps ist alles Open Source.
@@ -248,7 +302,39 @@ Unterstütze Rastislav Vysoky (recrof) bei der Entwicklung seiner Flasher-Websit
 
 ### F: Wie erstelle ich MeshCore-Firmware aus dem Quellcode?
 **A:** Anleitungen findest du hier:
-<https://discord.com/channels/826570251612323860/1330643963501351004/1342120825251299388>
+https://discord.com/channels/826570251612323860/1330643963501351004/1341826372120608769
+
+Anleitung für MeshCore:
+
+Installiere für Windows zuerst WSL und Python+pip über: https://plainenglish.io/blog/setting-up-python-on-windows-subsystem-for-linux-wsl-26510f1b2d80
+
+(Linux, Windows+WSL) Im Terminal/Shell:
+
+```
+sudo apt update
+sudo apt install libpython3-dev
+sudo apt install python3-venv
+
+```
+Mac: python3 sollte bereits installiert sein.
+
+Dann sollte es für alle Plattformen gleich sein:
+
+```
+python3 -m venv meshcore
+cd meshcore && source bin/activate
+pip install -U platformio
+git clone https://github.com/ripplebiz/MeshCore.git 
+cd MeshCore
+
+```
+Öffne die Datei platformio.ini und in `[arduino_base]` editiere die `LORA_FREQ=867.5`
+speicher, und dann:
+
+```
+pio run -e RAK_4631_Repeater
+```
+dann findest du die Firmware unter `firmware.zip` in `.pio/build/RAK_4631_Repeater`
 
 Andy hat auch ein Video zur Erstellung mit VS Code:
 *Wie man Meshcore-Repeater-Firmware erstellt und flasht | Heltec V3*
@@ -264,11 +350,96 @@ Javascript: https://github.com/liamcottle/meshcore.js
 ### F: Unterstützt MeshCore ATAK?
 **A:** ATAK ist derzeit nicht in MeshCores Roadmap enthalten.
 
+Meshcore wäre für ATAK nicht optimal geeignet, da MeshCore-Clients keine Repeater-Funktion haben und für ATAK ein Repeater-Netzwerk benötigt wird.
+
+Es gibt keinen stabilen Pfad, da alle Clients ständig zwischen Repeatern wechseln.
+
+MeshCore-Clients müssten ihren Pfad ständig neu konfigurieren und den Datenverkehr im Netzwerk überfluten, was zu zahlreichen Kollisionen mit einem so gesprächigen System wie ATAK führen könnte.
+
+Dies könnte sich in Zukunft ändern, wenn MeshCore eine Client-Firmware mit Repeatern entwickelt.
+
+[Quelle](https://discord.com/channels/826570251612323860/1330643963501351004/1354780032140054659)
+
 ### F: Wie füge ich einen Knoten zur [MeshCore-Karte]([url](https://meshcore.co.uk/map.html)) hinzu?
 **A:** Verbinde dich über die Smartphone-App mit einem BLE-Begleitfunkgerät.
 - Um das mit deinem Smartphone verbundene BLE-Begleitfunkgerät zur Karte hinzuzufügen, tippe auf das Werbesymbol und anschließend auf „Anzeigen (In die Zwischenablage)“.
 - Um einen Repeater oder Raumserver zur Karte hinzuzufügen, tippe auf die drei Punkte neben dem gewünschten Repeater oder Raumserver und anschließend auf „Teilen (In die Zwischenablage)“.
 - Rufe die [MeshCore Map-Website]([url](https://meshcore.co.uk/map.html)) auf, tippe auf das Pluszeichen unten rechts und füge den meshcore://...-Blob ein. Tippe anschließend auf „Knoten hinzufügen“.
+
+### F: Kann ich ein MeshCore-Device mit einem Raspberry Pi aktualisieren?
+**A:** Ja.
+
+Du musst Picocom auf dem Pi installieren.
+
+`sudo apt install picocom`
+
+Führe dann die folgenden Befehle aus, um den Repeater einzurichten.
+
+```
+
+picocom -b 115200 /dev/ttyUSB0 --imap lfcrlf
+
+set name your_repeater_name
+time epoch_time
+password your_unique_password
+set advert.interval 240
+advert
+
+```
+Hinweis: Bei Verwendung eines RAK ist der Pfad höchstwahrscheinlich /dev/ttyACM0
+
+Epochenzeiten findest du auf https://www.epochconverter.com/
+
+Du kannst den Repeater auch mit esptool flashen. Dazu musst du esptool mit dem folgenden Befehl installieren:
+
+`pip install esptool --break-system-packages`
+ 
+Um die Firmware dann auf Heltec zu flashen, nutze das  .bin File from https://flasher.meshcore.co.uk/ (Link zum Herunterladen aller Firmware)
+ 
+Für den Heltec:
+`esptool.py -p /dev/ttyUSB0 --chip esp32-s3 write_flash 0x00000 firmware.bin`
+
+Wenn du eine Visual Studio Code Build-Bin-Datei flashst, flashe mit dem folgenden Offset:
+`esptool.py -p /dev/ttyUSB0 --chip esp32-s3 write_flash 0x10000 firmware.bin`
+
+Für den Pi
+Lade die Zip-Datei von der Online-Flasher-Website herunter und verwende den folgenden Befehl:
+
+Hinweis: Erfordert den Befehl adafruit-nrfutil, der wie folgt installiert werden kann.
+ 
+`pip install adafruit-nrfutil --break-system-packages`
+
+
+```
+adafruit-nrfutil --verbose dfu serial --package t1000_e_bootloader-0.9.1-5-g488711a_s140_7.3.0.zip -p /dev/ttyACM0 -b 115200 --singlebank --touch 1200
+
+```
+[Quelle](https://discord.com/channels/826570251612323860/1330643963501351004/1342120825251299388)
+ 
+### F: Gibt es Projekte, die auf MeshCore basieren?
+ 
+**A:** Ja. Siehe Folgendes:
+ 
+#### meshcoremqtt
+ 
+Ein Python-basiertes Skript zum Senden von Meshor-Debug- und Paketerfassungsdaten zur Analyse an MQTT
+https://github.com/Andrew-a-g/meshcoretomqtt
+
+#### MeshCore für Home Assistant
+Eine benutzerdefinierte Home Assistant-Integration für MeshCore-Mesh-Funkknoten. Sie ermöglicht die Überwachung und Steuerung von MeshCore-Knoten über USB-, BLE- oder TCP-Verbindungen.
+https://github.com/awolden/meshcore-ha
+ 
+#### Python MeshCore
+Bindings für den Zugriff auf Ihre MeshCore-Begleitfunkknoten in Python. 
+https://github.com/fdlamotte/meshcore_py
+
+#### meshcore-cli  
+CLI-Schnittstelle zum MeshCore-Begleitradio über BLE, TCP oder seriell. Verwendet Pyton MeshCore (siehe oben).
+https://github.com/fdlamotte/meshcore-cli
+ 
+#### meshcore.js
+Eine Javascript-Bibliothek zur Interaktion mit einem MeshCore-Gerät, auf dem die Companion-Radio-Firmware läuft
+https://github.com/liamcottle/meshcore.js
 
 ---
 
@@ -313,7 +484,9 @@ Du kannst die Firmware von Repeatern und Raumservern über eine Bluetooth-Verbin
 
 **iOS fährt hier fort:**
 5. Nach erfolgreicher Verbindung wird ein „DFU“-Symbol angezeigt. ![Eingefügtes Bild 20250309173039](https://github.com/user-attachments/assets/af7a9f78-8739-4946-b734-02bade9c8e71)
-erscheint oben rechts in der App![Eingefügtes Bild 20250309171919](https://github.com/user-attachments/assets/08007ec8-4924-49c1-989f-ca2611e78793)
+erscheint oben rechts in der App
+
+![Eingefügtes Bild 20250309171919](https://github.com/user-attachments/assets/08007ec8-4924-49c1-989f-ca2611e78793)
 
 6. Scrolle nach unten, um die PRN-Nummer(n) zu ändern:
 
