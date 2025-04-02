@@ -169,7 +169,7 @@ The T-Deck firmware is free to download and most features are available without 
 - Canada and USA are on **910.525MHz**
 - For other regions and countries, please check your local LoRa frequency
 
-869,525Mhz allows an airtime of 10% and a higher EIRP, therefor MeshCore nodes can send more often and with more power. That is why this frequency is chosen for UK and EU.  This is also why Meshtastic also uses this frequency.  
+In UK and EU, 867.5MHz is not allowed to use 250kHz bandwidth and it only allows 2.5% duty cycle for clients.  869.525Mhz allows an airtime of 10%, 250KHz bandwidth, and a higher EIRP, therefore MeshCore nodes can send more often and with more power. That is why this frequency is chosen for UK and EU.  This is also why Meshtastic also uses this frequency.  
 
 [Source]([https://](https://discord.com/channels/826570251612323860/1330643963501351004/1356540643853209641))
 
