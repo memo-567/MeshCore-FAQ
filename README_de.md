@@ -16,7 +16,7 @@ Autor: https://github.com/LitBomb
 * Die plattformübergreifende mobile App von [Liam Cottle](https://liamcottle.net) für Android/iOS/PC usw. kann kostenlos heruntergeladen und genutzt werden.
 * Die T-Deck-Firmware wurde von Scott von Ripple Radios, dem Entwickler von MeshCore, entwickelt und kann ebenfalls kostenlos auf deine Geräte geflasht und genutzt werden.
 
-Einige erweiterte, aber optionale Funktionen sind auf T-Deck verfügbar, wenn du dein Gerät für einen Entsperrschlüssel registrierst. Auf den MeshCore-Smartphone-Clients für Android und iOS/iPadOS kannst du die Wartezeit für die Fernverwaltung von Repeatern und Raumservern über Funk abschalten.
+Einige erweiterte, aber optionale Funktionen sind auf dem T-Deck verfügbar, wenn du dein Gerät für einen Entsperrschlüssel registrierst. Auf den MeshCore-Smartphone-Clients für Android und iOS/iPadOS kannst du die Wartezeit für die Fernverwaltung von Repeatern und Raumservern über Funk abschalten.
 
 Diese Funktionen sind völlig optional und für das grundlegende Messaging-Erlebnis nicht erforderlich. Diese Funktionen sind wie tolle Bonusfunktionen. Um die Entwickler bei der Weiterentwicklung dieser fantastischen Funktionen zu unterstützen, erheben sie möglicherweise eine geringe Gebühr für einen Freischaltcode zur Nutzung der erweiterten Funktionen.
 
@@ -63,7 +63,7 @@ Repeater dienen zur Erweiterung der Reichweite eines MeshCore-Netzwerks. Die Rep
 #### Room server
 Ein Room Server ist ein einfacher BBS-Server zum Teilen von Beiträgen. T-Deck-Geräte mit MeshCore-Firmware oder ein BLE Companion-Client, der mit einem Smartphone mit MeshCore-App verbunden ist, können sich mit einem Raumserver verbinden.
 
-Raumserver speichern den Nachrichtenverlauf und senden ihn an Nutzer. Nutzer, die sich im Raum befinden, können später auf den Nachrichtenverlauf zugreifen. Im Gegensatz zu Kanälen werden Nachrichten entweder empfangen, wenn sie gesendet werden, oder nicht empfangen und verpasst, wenn sich ein Nutzer außerhalb der Reichweite befindet. Raumserver kannst du dir wie einen E-Mail-Server vorstellen, auf denen du später deine E-Mails abrufen kannst.
+Raumserver speichern den Nachrichtenverlauf und senden ihn an die Nutzer. Nutzer, die sich nicht im Raum befinden, können später auf den Nachrichtenverlauf zugreifen. Anders als bei den Kanälen werden die Nachrichten gespeichert. Room-Server kannst du dir wie E-Mail-Server vorstellen, auf denen du später deine E-Mails abrufen kannst.
 
 Ein Raumserver kann per Fernzugriff über ein T-Deck mit MeshCore-Firmware und freigeschalteten Fernverwaltungsfunktionen oder über einen BLE Companion Client, der mit einem Smartphone mit MeshCore-App verbunden ist, verwaltet werden.
 
@@ -101,6 +101,14 @@ Die T-Deck-Firmware kann kostenlos heruntergeladen werden, und die meisten Funkt
 ### F: Welche Frequenzen werden von MeshCore unterstützt?
 **A:** Es unterstützt den 868-MHz-Bereich in Großbritannien / der EU und den 915-MHz-Bereich in Neuseeland, Australien und den USA. Länder und Regionen in diesen beiden Frequenzbereichen werden ebenfalls unterstützt. Die Firmware und der Client ermöglichen es Nutzern, ihre bevorzugte Frequenz einzustellen.
 
+In Großbritannien und der EU ist die Nutzung der 250-kHz-Bandbreite auf 867,5 MHz nicht gestattet und es ist nur ein Arbeitszyklus von 2,5 % für Clients zulässig. 869,525 MHz ermöglicht eine Sendezeit von 10 %, eine Bandbreite von 250 kHz und eine höhere EIRP (Electronical Reach Rate), wodurch MeshCore-Knoten häufiger und mit mehr Leistung senden können. Deshalb wurde diese Frequenz für Großbritannien und die EU gewählt. Aus diesem Grund nutzt auch Meshtastic diese Frequenz. 
+
+Empfehlung der Entwickler für Netze bis zu 40 Teilnehmern: 
+Frequenz: `869,525 MHz, Bandbreite 250 kHz, Spreizfaktor 11, Coding Rate 5`. Bei Netzen über 40 Teilnehmer kann der Spreizfaktor dann bei allen (!) Teilnehmern auf 10 heruntergesetzt werden.
+
+
+[Quelle](https://discord.com/channels/826570251612323860/1330643963501351004/1356540643853209641)
+ 
 – Australien und Neuseeland nutzen **915,8 MHz**
 – Großbritannien und die EU nutzen **869,525 MHz**
 – Kanada und die USA nutzen **910,525 MHz**
@@ -133,7 +141,7 @@ MeshCore-Clients melden sich nur dann selbst an, wenn der Benutzer dies initiier
 
 ### F: Wie konfiguriert man einen Repeater oder einen Raumserver?
 **A:** Einer dieser Server kann mit einer der folgenden Optionen verwaltet werden:
-- Verbinde das Servergerät per USB-Kabel mit einem Computer mit Chrome unter https://flasher.meshcore.co.uk/ und verwende dann die Konsolenfunktion, um eine Verbindung zum Gerät herzustellen.
+- Nachdem die Firmware eines Repeaters oder Raumservers auf ein LoRa-Gerät übertragen wurde, rufe <https://config.meshcore.dev> mit Chrome auf und verbinde dich über die Weboberfläche per USB-Seriell mit dem LoRa-Gerät. Dort kannst du den Namen des Servers, seine Frequenz und weitere zugehörige Einstellungen, Standort, Passwörter usw. festlegen.
 - Dies ist erforderlich, um die Frequenz des Servergeräts einzustellen, falls diese nicht mit der Frequenz deiner Region oder deines Landes übereinstimmt.
 - MeshCore-Smart-Device-Clients können Server fernverwalten.
 - Ein T-Deck mit freigeschalteter/registrierter MeshCore-Firmware. Die Fernverwaltung des Servers wird durch die Registrierung deines T-Decks bei Ripple Radios ermöglicht. Dies ist eine Möglichkeit, die MeshCore-Entwicklung zu unterstützen. Du kannst dein T-Deck hier registrieren:
@@ -180,8 +188,8 @@ Du kanst den Breiten- und Längengrad von Google Maps abrufen, indem du mit der 
 ### F: Welche SD-Kartengröße unterstützt das T-Deck?
 **A:** Nutzer hatten keine Probleme mit 16-GB- oder 32-GB-SD-Karten. Formatiere die SD-Karte im **FAT32**-Format.
 
-### F: Wie erhalte ich Karten auf T-Deck?
-**A:** Du benötigst Kartenkacheln. Hier kannst du vorab heruntergeladene Kartenkacheln herunterladen (eine gute Möglichkeit, die Entwicklung zu unterstützen):
+### F: Wie erhalte ich Karten auf dem T-Deck?
+**A:** Du benötigst Kartenkacheln (Tiles). Hier kannst du vorab heruntergeladene Kartenkacheln herunterladen (eine gute Möglichkeit, die Entwicklung zu unterstützen):
 - <https://buymeacoffee.com/ripplebiz/e/342543> (Europa)
 - <https://buymeacoffee.com/ripplebiz/e/342542> (USA)
 
@@ -400,6 +408,7 @@ Für den Heltec:
 `esptool.py -p /dev/ttyUSB0 --chip esp32-s3 write_flash 0x00000 firmware.bin`
 
 Wenn du eine Visual Studio Code Build-Bin-Datei flashst, flashe mit dem folgenden Offset:
+
 `esptool.py -p /dev/ttyUSB0 --chip esp32-s3 write_flash 0x10000 firmware.bin`
 
 Für den Pi
@@ -409,10 +418,8 @@ Hinweis: Erfordert den Befehl adafruit-nrfutil, der wie folgt installiert werden
  
 `pip install adafruit-nrfutil --break-system-packages`
 
-
 ```
 adafruit-nrfutil --verbose dfu serial --package t1000_e_bootloader-0.9.1-5-g488711a_s140_7.3.0.zip -p /dev/ttyACM0 -b 115200 --singlebank --touch 1200
-
 ```
 [Quelle](https://discord.com/channels/826570251612323860/1330643963501351004/1342120825251299388)
  
@@ -466,18 +473,18 @@ Du kannst die Epoch-Zeit unter <https://www.epochconverter.com/> abrufen und dam
 
 ---
 ## Weitere Fragen:
-### F: Wie aktualisiere ich die Firmware von Repeater und Raumserver drahtlos?
+### F: Wie aktualisiere ich die Firmware von Repeater und Room-Server drahtlos?
 
 **A:** ONur nRF-basierte RAK4631- und Heltec T114-OTA-Firmware-Updates werden mit der nRF-Smartphone-App verifiziert. Lilygo T-Echo funktioniert derzeit nicht.
-Du kannst die Firmware von Repeatern und Raumservern über eine Bluetooth-Verbindung zwischen deinem Smartphone und deinem LoRa-Radio mithilfe der nRF-App aktualisieren.
+Du kannst die Firmware der Repeater und Room-Server über eine Bluetooth-Verbindung zwischen deinem Smartphone und deinem LoRa-Radio mithilfe der nRF-App aktualisieren.
 
 1. Lade die ZIP-Datei für den jeweiligen Knoten vom Web-Flasher auf dein Smartphone herunter.
-2. Melde dich im Telefon-Client als Administrator am Repeater an (Standardkennwort: „password“), um den Befehl „start ota“ an den Repeater oder Raumserver zu senden und das Gerät in den OTA-DFU-Modus zu versetzen.
+2. Melde dich im Telefon-Client als Administrator am Repeater an (Standardkennwort: „password“), um den Befehl „start ota“ an den Repeater oder Room-Server zu senden und das Gerät in den OTA-DFU-Modus zu versetzen.
 
 ![image](https://github.com/user-attachments/assets/889bb81b-7214-4a1c-955a-396b5a05d8ad)
 1. „start ota“ kann über die USB-Seriell-Konsole auf der Web-Flasher-Seite oder über ein T-Deck gestartet werden.
 4. Lade die nRF-App auf deinem Smartphone herunter, starte sie und suchen nach Bluetooth-Geräten.
-5. Verbinde dich mit dem zu aktualisierenden Repeater/Raumserverknoten.
+5. Verbinde dich mit dem zu aktualisierenden Repeater / Room-Serverknoten.
 1. Die nRF-App ist sowohl für Android als auch für iOS verfügbar.
 
 **Android fährt nach dem iOS-Abschnitt fort:**
@@ -500,8 +507,8 @@ erscheint oben rechts in der App
 
 ![Bild eingefügt 20250309190342](https://github.com/user-attachments/assets/a60e25d0-33b8-46cf-af90-20a7d8ac2adb)
 
-**Die Android-Anleitung wird unten fortgesetzt:**
-1. Tippe oben links in der nRF Connect App auf Android auf das 3-Balken-Hamburger-Menü, dann auf „Einstellungen“ und dann auf „nRF5 DFU-Optionen“.
+**Die Android-Anleitung wird hier fortgesetzt:**
+1. Tippe oben links in der **nRF Connect App** (Version 4.24.3 von der [Nordic Semiconductor GitHub Seite](https://github.com/NordicSemiconductor/Android-nRF-Connect/releases/tag/v4.24.3)) auf das 3-Balken-Hamburger-Menü, dann auf „Einstellungen“ und dann auf „nRF5 DFU-Optionen“.
 
 ![Android nRF Hamburger](https://github.com/user-attachments/assets/ea6dfeef-9367-4830-bd70-1441d517c706)
 
