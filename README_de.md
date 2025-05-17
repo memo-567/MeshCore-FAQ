@@ -119,6 +119,8 @@ Die restlichen Funkeinstellungen sind für alle Frequenzen gleich:
 – Kodierungsrate (CR): 5
 – Bandbreite (BW): 250,00
 
+(Ursprünglich startete MeshCore mit SF 10. Seit Ende April 2025 empfiehlt die Community auch SF 11 als praktikable Option für Übertragungen mit größerer Reichweite, aber etwas langsameren Frequenzen. Aktuell gibt es MeshCore-Netze mit SF 10 und SF 11. Die Voreinstellungen der Smartphone-App empfehlen nun SF 10 für Australien und SF 11 für alle anderen Regionen und Länder. In der EU und Großbritannien gibt es Voreinstellungen für SF 10 und SF 11. Zukünftig könnte es Brückenknoten geben, die SF 10- und SF 11-Verkehr (oder sogar auf unterschiedlichen Frequenzen) überbrücken können.)
+
 ### F: Was ist ein „Advert“ in MeshCore?
 
 **A:**
@@ -142,7 +144,7 @@ MeshCore-Clients melden sich nur dann selbst an, wenn der Benutzer dies initiier
 ### F: Wie konfiguriert man einen Repeater oder einen Raumserver?
 **A:** Einer dieser Server kann mit einer der folgenden Optionen verwaltet werden:
 - Nachdem die Firmware eines Repeaters oder Raumservers auf ein LoRa-Gerät übertragen wurde, rufe <https://config.meshcore.dev> mit Chrome auf und verbinde dich über die Weboberfläche per USB-Seriell mit dem LoRa-Gerät. Dort kannst du den Namen des Servers, seine Frequenz und weitere zugehörige Einstellungen, Standort, Passwörter usw. festlegen.
-- Dies ist erforderlich, um die Frequenz des Servergeräts einzustellen, falls diese nicht mit der Frequenz deiner Region oder deines Landes übereinstimmt.
+- Wenn MeshCore zum ersten Mal auf ein LoRa-Gerät geflasht wird, muss die Frequenz des Servergeräts eingestellt werden, damit es die in deinem Land oder deiner Region zulässige Frequenz nutzt.
 - MeshCore-Smart-Device-Clients können Server fernverwalten.
 - Ein T-Deck mit freigeschalteter/registrierter MeshCore-Firmware. Die Fernverwaltung des Servers wird durch die Registrierung deines T-Decks bei Ripple Radios ermöglicht. Dies ist eine Möglichkeit, die MeshCore-Entwicklung zu unterstützen. Du kannst dein T-Deck hier registrieren:
 <https://buymeacoffee.com/ripplebiz/e/249834>
@@ -181,6 +183,10 @@ Du kanst den Breiten- und Längengrad von Google Maps abrufen, indem du mit der 
 
 ### F: Warum empfängt mein T-Deck Plus keine Satellitenverbindung?
 **A:** Beim T-Deck Plus sollte die GPS-Baudrate auf **38400** eingestellt sein. Außerdem wurde bei einigen T-Deck Plus-Geräten festgestellt, dass das GPS-Modul verkehrt herum eingebaut war, d. h. die GPS-Antenne zeigte nach unten statt nach oben. Wenn dein T-Deck Plus nach dem Einstellen der Baudrate auf 38400 immer noch keine Satellitenverbindung empfängt, mustt du das Gerät möglicherweise öffnen, um die GPS-Ausrichtung zu überprüfen.
+
+GPS ist auf dem T-Deck immer aktiviert. Du kannst die GPS-Zeitsynchronisierung überspringen, und das T-Deck versucht weiterhin, eine GPS-Verbindung herzustellen. Gehe zum Bildschirm „GPS-Info“. Dort sollte der Zähler „Sätze:“ ansteigen, wenn die Baudrate korrekt ist.
+
+[Quelle](https://discord.com/channels/826570251612323860/1330643963501351004/1356609240302616689)
 
 ### F: Warum empfängt mein OG (nicht Plus) T-Deck keine Satellitenverbindung?
 **A:** Das OG (nicht Plus) T-Deck wird ohne GPS geliefert. Wenn du deinem OG T-Deck ein GPS hinzugefügt hast, lese bitte in der Bedienungsanleitung deines GPS nach, welche Baudrate erforderlich ist. Alternativ kannst du versuchen, eine Baudrate von 9600, 19200 usw. bis 115200 einzustellen, um zu sehen, welche funktioniert.
