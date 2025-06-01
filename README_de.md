@@ -482,71 +482,33 @@ Du kannst die Epoch-Zeit unter <https://www.epochconverter.com/> abrufen und dam
 
 ---
 ## Weitere Fragen:
-### F: Wie aktualisiere ich die Firmware von Repeater und Room-Server drahtlos?
+### F: Wie aktualisiere ich ESP32-basierte Geräte drahtlos?
 
-**A:** ONur nRF-basierte RAK4631- und Heltec T114-OTA-Firmware-Updates werden mit der nRF-Smartphone-App verifiziert. Lilygo T-Echo funktioniert derzeit nicht.
-Du kannst die Firmware der Repeater und Room-Server über eine Bluetooth-Verbindung zwischen deinem Smartphone und deinem LoRa-Radio mithilfe der nRF-App aktualisieren.
+**A:** Für ESP32-basierte Geräte (z. B. Heltec V3):
 
-1. Lade die ZIP-Datei für den jeweiligen Knoten vom Web-Flasher auf dein Smartphone herunter.
-2. Melde dich im Telefon-Client als Administrator am Repeater an (Standardkennwort: „password“), um den Befehl „start ota“ an den Repeater oder Room-Server zu senden und das Gerät in den OTA-DFU-Modus zu versetzen.
+1. Lade auf auf flasher.meshcore.co.uk die **nicht-merged** Version der Firmware für dein ESP32-Gerät herunter (z. B. `Heltec_v3_repeater-v1.6.2-4449fd3.bin`, ohne `merged` im Dateinamen).
+2. Melde dich in der MeshCore-App mit Administratorrechten remote bei dem zu aktualisierenden Repeater an.
+4. Öffne die Befehlszeile, gebe `start ota` ein und drücke die Eingabetaste.
+5. Du solltest `OK` sehen, um zu bestätigen, dass sich das Repeater-Gerät nun im OTA-Modus befindet.
+6. Der Befehl `start ota` auf einem ESP32-basierten Gerät startet einen WLAN-Hotspot namens `MeshCore OTA`.
+7. Verbinde dich von deinem Smartphone oder Computer aus mit dem `MeshCore OTA`-Hotspot.
+8. Rufe in einem Browser http://192.168.4.1/update auf und lade die nicht zusammengeführte Bin-Datei vom Flasher hoch.
 
-![image](https://github.com/user-attachments/assets/889bb81b-7214-4a1c-955a-396b5a05d8ad)
-1. „start ota“ kann über die USB-Seriell-Konsole auf der Web-Flasher-Seite oder über ein T-Deck gestartet werden.
-4. Lade die nRF-App auf deinem Smartphone herunter, starte sie und suchen nach Bluetooth-Geräten.
-5. Verbinde dich mit dem zu aktualisierenden Repeater / Room-Serverknoten.
-1. Die nRF-App ist sowohl für Android als auch für iOS verfügbar.
+### **F:** Wie aktualisiere ich die Firmware von nRF-Repeatern (RAK, T114, Seed XIAO) und Raumservern drahtlos mit der neuen, einfacheren DFU-App?
 
-**Android fährt nach dem iOS-Abschnitt fort:**
+**A:** Die folgenden Schritte funktionieren sowohl auf Android als auch auf iOS, da nRF die Benutzeroberfläche beider Apps auf beiden Plattformen vereinheitlicht hat:
 
-**iOS fährt hier fort:**
-5. Nach erfolgreicher Verbindung wird ein „DFU“-Symbol angezeigt. ![Eingefügtes Bild 20250309173039](https://github.com/user-attachments/assets/af7a9f78-8739-4946-b734-02bade9c8e71)
-erscheint oben rechts in der App
-
-![Eingefügtes Bild 20250309171919](https://github.com/user-attachments/assets/08007ec8-4924-49c1-989f-ca2611e78793)
-
-6. Scrolle nach unten, um die PRN-Nummer(n) zu ändern:
-
-![Eingefügtes Bild 20250309190158](https://github.com/user-attachments/assets/11f69cdd-12f3-4696-a6fc-14a78c85fe32)
-
-- Für T114 ändere die Anzahl der Pakete (PRN(s)) auf 8.
-- Für RAK können es 10 sein, es funktioniert aber auch mit 8.
-
-7. Klicke auf das DFU-Symbol ![Bild eingefügt 20250309173039](https://github.com/user-attachments/assets/af7a9f78-8739-4946-b734-02bade9c8e71), wähle den Dateityp zum Hochladen (ZIP) und wähle anschließend die ZIP-Datei aus, die du zuvor vom Web Flasher heruntergeladen haben.
-8. Der Upload-Vorgang wird nun gestartet. Wenn alles gut geht, wird der Knoten zurückgesetzt und erfolgreich geflasht.
-
-![Bild eingefügt 20250309190342](https://github.com/user-attachments/assets/a60e25d0-33b8-46cf-af90-20a7d8ac2adb)
-
-**Die Android-Anleitung wird hier fortgesetzt:**
-1. Tippe oben links in der **nRF Connect App** (Version 4.24.3 von der [Nordic Semiconductor GitHub Seite](https://github.com/NordicSemiconductor/Android-nRF-Connect/releases/tag/v4.24.3)) auf das 3-Balken-Hamburger-Menü, dann auf „Einstellungen“ und dann auf „nRF5 DFU-Optionen“.
-
-![Android nRF Hamburger](https://github.com/user-attachments/assets/ea6dfeef-9367-4830-bd70-1441d517c706)
-
-![Android nRF Einstellungen](https://github.com/user-attachments/assets/c63726bf-cecd-4987-be68-afb6358c7190)
-
-![Android nRF DFU-Optionen](https://github.com/user-attachments/assets/b20e872f-5122-41d9-90df-0215cff5fbc9)
-
-2. Ändere die Paketanzahl auf „10“ für RAK und „8“ für Heltec T114.
-
-![Android nRF Paketanzahl](https://github.com/user-attachments/assets/c092adaf-4cb3-460b-b7ef-8d7f450d602b)
-
-3. Kehre zum Hauptbildschirm zurück.
-4. Dein LoRa-Gerät sollte sich bereits im DFU-Modus befinden.
-5. Tippe auf Klicke auf „SCANNER“ und anschließend auf „SCANNEN“, um das zu aktualisierende Gerät zu finden. Tippe anschließend auf „VERBINDEN“.
-
-![Android nRF Scanner Scan Connect](https://github.com/user-attachments/assets/37218717-f167-48b6-a6ca-93d132ef77ca)
-
-6. Tippe oben links in der nRF Connect App auf das DFU-Symbol neben den drei Punkten.
-
-![Android nRF DFU](https://github.com/user-attachments/assets/1ec3b818-bf0c-461f-8fdf-37c41a63cafa)
-
-7. Wähle „Distributionspaket (ZIP)“ und klicke auf „OK“.
-
-![Android nRF Distributionspaket (ZIP)](https://github.com/user-attachments/assets/e65f5616-9793-44f5-95c0-a3eb15aa7152)
-
-8. Wähle die Firmware-Datei im ZIP-Format aus, die du zuvor vom MeshCore Web Flasher heruntergeladen haben. Das Update startet, sobald du auf die Datei tippst.
-
-![Android nRF FW-Aktualisierung](https://github.com/user-attachments/assets/0814d123-85ce-4c87-90a7-e1a25dc71900)
-
-9. Nach Abschluss des Aktualisierungsvorgangs wird die Verbindung des Geräts zur nRF-App getrennt und das LoRa-Gerät aktualisiert.
+1. Lade die DFU-App von nRF aus dem iOS App Store oder Android Play Store herunter. Kommentar hinzufügen. Weitere Aktionen.
+2. Lade auf flasher.meshcore.co.uk die **ZIP**-Version der Firmware für dein nRF-Gerät (z. B. RAK, Heltec T114 oder Seeed Studios Xiao) herunter. 
+3. Melde dich in der MeshCore-App mit Administratorrechten bei dem zu aktualisierenden Repeater an.
+4. Wechsel zur Registerkarte Befehlszeile, gebe `start ota ein und drücke die Eingabetaste.
+5. Du solltest `OK` sehen, um zu bestätigen, dass sich der Repeater nun im OTA-Modus befindet.
+6. Starte die DFU-App und wähle oben rechts `Einstellungen`.
+7. Aktiviere `Packets receipt notifications` und änder die `Number of Packets` auf 10 für RAK und 8 für T114. 8 funktioniert auch für den RAK.
+8. Wähle die heruntergeladene Firmware-ZIP-Datei aus.
+9. Wähle das zu aktualisierende Gerät aus. Sollte das zu aktualisierende Gerät nicht in der Liste enthalten sein, aktiviere OTA erneut.
+10. Tippe auf `Upload`, um das OTA-Update zu starten.
+11. Sollte das Update fehlschlagen, schalte Bluetooth auf deinem Smartphone aus und wieder ein. Sollte dies nicht funktionieren, starte dein Smartphone neu.
+12. Warte, bis das Update abgeschlossen ist. Dies kann einige Minuten dauern.
 
 ---
